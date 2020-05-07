@@ -1,0 +1,54 @@
+<h1 id="syncing-a-github-fork">Syncing a github fork.</h1>
+
+<p>Borrowed of https://github.com/BlockSigner/cove</p>
+
+<ol id="markdown-toc">
+  <li><a href="#syncing-a-github-fork" id="markdown-toc-syncing-a-github-fork">Syncing a github fork.</a>    <ol>
+      <li><a href="#configure-a-remote-for-a-fork" id="markdown-toc-configure-a-remote-for-a-fork">Configure a remote for a fork</a></li>
+      <li><a href="#syncing-the-fork" id="markdown-toc-syncing-the-fork">Syncing the fork</a></li>
+    </ol>
+  </li>
+</ol>
+
+<h3 id="configure-a-remote-for-a-fork">Configure a remote for a fork</h3>
+<p>https://help.github.com/en/articles/configuring-a-remote-for-a-fork</p>
+
+<ul>
+  <li>open the Terminal</li>
+  <li>list the remote for your fork
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git remote -v
+</code></pre></div>    </div>
+  </li>
+  <li>specify a new remote <code class="highlighter-rouge">upstream</code>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
+</code></pre></div>    </div>
+  </li>
+  <li>verify the new <code class="highlighter-rouge">upstream</code>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git remote -v
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="syncing-the-fork">Syncing the fork</h3>
+<p>from https://help.github.com/en/articles/syncing-a-fork</p>
+
+<ul>
+  <li>open the Terminal</li>
+  <li>change to your local project</li>
+  <li>fetch the branches from upstream
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git fetch upstream
+</code></pre></div>    </div>
+  </li>
+  <li>check out your fork’s local <code class="highlighter-rouge">master</code> branch
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git checkout master
+</code></pre></div>    </div>
+  </li>
+  <li>merge changes from <code class="highlighter-rouge">usptream/master</code> into <code class="highlighter-rouge">master</code>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ git merge upstream/master
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<script src="https://utteranc.es/client.js" repo="op07n/fastpages" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
+

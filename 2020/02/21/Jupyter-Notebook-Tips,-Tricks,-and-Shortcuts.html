@@ -1,0 +1,721 @@
+<h1 id="28-jupyter-notebook-tips-tricks-and-shortcuts">28 Jupyter Notebook Tips, Tricks, and Shortcuts</h1>
+
+<p>Borrowed from <a href="">https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/</a></p>
+
+<ol>
+  <li>TOC</li>
+</ol>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/interface-screenshot.png" alt="interface-screenshot" /></p>
+
+<p><em>The Jupyter interface.</em></p>
+
+<p>Project Jupyter was born out of the IPython project as the project evolved to become a notebook that could support multiple languages – hence its historical name as the IPython notebook. The name Jupyter is an indirect acronyum of the three core languages it was designed for: <strong>JU</strong>lia, <strong>PYT</strong>hon, and <strong>R</strong> and is inspired by the planet Jupiter.</p>
+
+<p>When working with Python in Jupyter, the IPython kernel is used, which gives us some handy access to IPython features from within our Jupyter notebooks (more on that later!)</p>
+
+<p>We’re going to show you 28 tips and tricks to make your life working with Jupyter easier.</p>
+
+<h2 id="1-keyboard-shortcuts">1. Keyboard Shortcuts</h2>
+
+<p>As any power user knows, keyboard shortcuts will save you lots of time. Jupyter stores a list of keybord shortcuts under the menu at the top: <code class="highlighter-rouge">Help &gt; Keyboard Shortcuts</code>, or by pressing <code class="highlighter-rouge">H</code> in command mode (more on that later). It’s worth checking this each time you update Jupyter, as more shortcuts are added all the time.</p>
+
+<p>Another way to access keyboard shortcuts, and a handy way to learn them is to use the command palette: <code class="highlighter-rouge">Cmd + Shift + P</code> (or <code class="highlighter-rouge">Ctrl + Shift + P</code> on Linux and Windows). This dialog box helps you run any command by name – useful if you don’t know the keyboard shortcut for an action or if what you want to do does not have a keyboard shortcut. The functionality is similar to Spotlight search on a Mac, and once you start using it you’ll wonder how you lived without it!</p>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/command-palette.gif" alt="command-palette" /></p>
+
+<p><em>The command palette.</em></p>
+
+<p>Some of my favorites:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Esc</code> will take you into command mode where you can navigate around your notebook with arrow keys.</li>
+  <li>While in command mode:
+    <ul>
+      <li><code class="highlighter-rouge">A</code> to insert a new cell above the current cell, <code class="highlighter-rouge">B</code> to insert a new cell below.</li>
+      <li><code class="highlighter-rouge">M</code> to change the current cell to Markdown, <code class="highlighter-rouge">Y</code> to change it back to code</li>
+      <li><code class="highlighter-rouge">D + D</code> (press the key twice) to delete the current cell</li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">Enter</code> will take you from command mode back into edit mode for the given cell.</li>
+  <li><code class="highlighter-rouge">Shift + Tab</code> will show you the Docstring (documentation) for the the object you have just typed in a code cell – you can keep pressing this short cut to cycle through a few modes of documentation.</li>
+  <li><code class="highlighter-rouge">Ctrl + Shift + -</code> will split the current cell into two from where your cursor is.</li>
+  <li><code class="highlighter-rouge">Esc + F</code> Find and replace on your code but not the outputs.</li>
+  <li><code class="highlighter-rouge">Esc + O</code> Toggle cell output.</li>
+  <li>Select Multiple Cells:
+    <ul>
+      <li><code class="highlighter-rouge">Shift + J</code> or <code class="highlighter-rouge">Shift + Down</code> selects the next sell in a downwards direction. You can also select sells in an upwards direction by using <code class="highlighter-rouge">Shift + K</code> or <code class="highlighter-rouge">Shift + Up</code>.</li>
+      <li>Once cells are selected, you can then delete / copy / cut / paste / run them as a batch. This is helpful when you need to move parts of a notebook.</li>
+      <li>You can also use <code class="highlighter-rouge">Shift + M</code> to merge multiple cells.</li>
+    </ul>
+  </li>
+</ul>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/multi-merge.gif" alt="multi-merge" /></p>
+
+<p><em>Merging multiple cells.</em></p>
+
+<h2 id="2-pretty-display-of-variables">2. Pretty Display of Variables</h2>
+
+<p>The first part of this is pretty widely known. By finishing a Jupyter cell with the name of a variable or unassigned output of a statement, Jupyter will display that variable without the need for a print statement. This is especially useful when dealing with Pandas DataFrames, as the output is neatly formatted into a table.</p>
+
+<p>What is known less, is that you can alter a modify the <code class="highlighter-rouge">ast_note_interactivity</code> kernel option to make jupyter do this for any variable or statement on it’s own line, so you can see the value of multiple statements at once.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="kn">import</span> <span class="n">InteractiveShell</span>
+<span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s">"all"</span>
+<span class="kn">from</span> <span class="nn">pydataset</span> <span class="kn">import</span> <span class="n">data</span>
+<span class="n">quakes</span> <span class="o">=</span> <span class="n">data</span><span class="p">(</span><span class="s">'quakes'</span><span class="p">)</span>
+<span class="n">quakes</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">quakes</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left">lat</th>
+      <th style="text-align: left">long</th>
+      <th style="text-align: left">depth</th>
+      <th style="text-align: left">mag</th>
+      <th style="text-align: left">stations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">1</td>
+      <td style="text-align: left">-20.42</td>
+      <td style="text-align: left">181.62</td>
+      <td style="text-align: left">562</td>
+      <td style="text-align: left">4.8</td>
+      <td style="text-align: left">41</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">2</td>
+      <td style="text-align: left">-20.62</td>
+      <td style="text-align: left">181.03</td>
+      <td style="text-align: left">650</td>
+      <td style="text-align: left">4.2</td>
+      <td style="text-align: left">15</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">3</td>
+      <td style="text-align: left">-26.00</td>
+      <td style="text-align: left">184.10</td>
+      <td style="text-align: left">42</td>
+      <td style="text-align: left">5.4</td>
+      <td style="text-align: left">43</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">4</td>
+      <td style="text-align: left">-17.97</td>
+      <td style="text-align: left">181.66</td>
+      <td style="text-align: left">626</td>
+      <td style="text-align: left">4.1</td>
+      <td style="text-align: left">19</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">5</td>
+      <td style="text-align: left">-20.42</td>
+      <td style="text-align: left">181.96</td>
+      <td style="text-align: left">649</td>
+      <td style="text-align: left">4.0</td>
+      <td style="text-align: left">11</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left"> </th>
+      <th style="text-align: left">lat</th>
+      <th style="text-align: left">long</th>
+      <th style="text-align: left">depth</th>
+      <th style="text-align: left">mag</th>
+      <th style="text-align: left">stations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">996</td>
+      <td style="text-align: left">-25.93</td>
+      <td style="text-align: left">179.54</td>
+      <td style="text-align: left">470</td>
+      <td style="text-align: left">4.4</td>
+      <td style="text-align: left">22</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">997</td>
+      <td style="text-align: left">-12.28</td>
+      <td style="text-align: left">167.06</td>
+      <td style="text-align: left">248</td>
+      <td style="text-align: left">4.7</td>
+      <td style="text-align: left">35</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">998</td>
+      <td style="text-align: left">-20.13</td>
+      <td style="text-align: left">184.20</td>
+      <td style="text-align: left">244</td>
+      <td style="text-align: left">4.5</td>
+      <td style="text-align: left">34</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">999</td>
+      <td style="text-align: left">-17.40</td>
+      <td style="text-align: left">187.80</td>
+      <td style="text-align: left">40</td>
+      <td style="text-align: left">4.5</td>
+      <td style="text-align: left">14</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">1000</td>
+      <td style="text-align: left">-21.59</td>
+      <td style="text-align: left">170.56</td>
+      <td style="text-align: left">165</td>
+      <td style="text-align: left">6.0</td>
+      <td style="text-align: left">119</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>If you want to set this behaviour for all instances of Jupyter (Notebook and Console), simply create a file <code class="highlighter-rouge">~/.ipython/profile_default/ipython_config.py</code> with the lines below.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()</span>
+
+<span class="c1"># Run all nodes interactively
+</span><span class="n">c</span><span class="o">.</span><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s">"all"</span>
+</code></pre></div></div>
+
+<h2 id="3-easy-links-to-documentation">3. Easy links to documentation</h2>
+
+<p>Inside the <code class="highlighter-rouge">Help</code> menu you’ll find handy links to the online documentation for common libraries including NumPy, Pandas, SciPy and Matplotlib.</p>
+
+<p>Don’t forget also that by prepending a library, method or variable with <code class="highlighter-rouge">?</code>, you can access the Docstring for quick reference on syntax.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">?</span><span class="nb">str</span><span class="o">.</span><span class="n">replace</span><span class="p">()</span>
+<span class="n">Docstring</span><span class="p">:</span>
+<span class="n">S</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">old</span><span class="p">,</span> <span class="n">new</span><span class="p">[,</span> <span class="n">count</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span>
+
+<span class="n">Return</span> <span class="n">a</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">S</span> <span class="k">with</span> <span class="nb">all</span> <span class="n">occurrences</span> <span class="n">of</span> <span class="n">substringold</span> <span class="n">replaced</span> <span class="n">by</span> <span class="n">new</span><span class="o">.</span>  <span class="n">If</span> <span class="n">the</span> <span class="n">optional</span> <span class="n">argument</span> <span class="n">count</span> <span class="n">isgiven</span><span class="p">,</span> <span class="n">only</span> <span class="n">the</span> <span class="n">first</span> <span class="n">count</span> <span class="n">occurrences</span> <span class="n">are</span> <span class="n">replaced</span><span class="o">.</span>
+<span class="n">Type</span><span class="p">:</span>      <span class="n">method_descriptor</span>
+</code></pre></div></div>
+
+<h2 id="4-plotting-in-notebooks">4. Plotting in notebooks</h2>
+
+<p>There are many options for generating plots in your notebooks.</p>
+
+<ul>
+  <li><a href="http://matplotlib.org/">matplotlib</a> (the de-facto standard), activated with <code class="highlighter-rouge">%matplotlib inline</code> – Here’s a Dataquest <a href="https://www.dataquest.io/blog/matplotlib-tutorial/">Matplotlib Tutorial</a>.</li>
+  <li><code class="highlighter-rouge">%matplotlib notebook</code> provides interactivity but can be a little slow, since rendering is done server-side.</li>
+  <li><a href="http://seaborn.pydata.org/">Seaborn</a> is built over Matplotlib and makes building more attractive plots easier. Just by importing Seaborn, your matplotlib plots are made ‘prettier’ without any code modification.</li>
+  <li><a href="https://github.com/mpld3/mpld3">mpld3</a> provides alternative renderer (using d3) for matplotlib code. Quite nice, though incomplete.</li>
+  <li><a href="http://bokeh.pydata.org/en/latest/">bokeh</a> is a better option for building interactive plots.</li>
+  <li><a href="https://plot.ly/">plot.ly</a> can generate nice plots – this used to be a paid service only but was recently open sourced.</li>
+  <li><a href="https://github.com/altair-viz/altair">Altair</a> is a relatively new declarative visualization library for Python. It’s easy to use and makes great looking plots, however the ability to customize those plots is not nearly as powerful as in Matplotlib.</li>
+</ul>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/bokeh.png" alt="bokeh" /></p>
+
+<p><em>The Jupyter interface.</em></p>
+
+<h2 id="5-ipython-magic-commands">5. IPython Magic Commands</h2>
+
+<p>The <code class="highlighter-rouge">%matplotlib inline</code> you saw above was an example of a <em>IPython Magic</em> command. Being based on the IPython kernel, Jupyter has access to all the Magics from the IPython kernel, and they can make your life a lot easier!</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># This will list all magic commands%lsmagic
+</span><span class="n">Available</span> <span class="n">line</span> <span class="n">magics</span><span class="p">:</span>
+<span class="o">%</span><span class="n">alias</span>  <span class="o">%</span><span class="n">alias_magic</span>  <span class="o">%</span><span class="n">autocall</span>  <span class="o">%</span><span class="n">automagic</span>  <span class="o">%</span><span class="n">autosave</span>  <span class="o">%</span><span class="n">bookmark</span>  <span class="o">%</span><span class="n">cat</span>  <span class="o">%</span><span class="n">cd</span>  <span class="o">%</span><span class="n">clear</span>  <span class="o">%</span><span class="n">colors</span>  <span class="o">%</span><span class="n">config</span>  <span class="o">%</span><span class="n">connect_info</span>  <span class="o">%</span><span class="n">cp</span>  <span class="o">%</span><span class="n">debug</span>  <span class="o">%</span><span class="n">dhist</span>  <span class="o">%</span><span class="n">dirs</span>  <span class="o">%</span><span class="n">doctest_mode</span>  <span class="o">%</span><span class="n">ed</span>  <span class="o">%</span><span class="n">edit</span>  <span class="o">%</span><span class="n">env</span>  <span class="o">%</span><span class="n">gui</span>  <span class="o">%</span><span class="n">hist</span>  <span class="o">%</span><span class="n">history</span>  <span class="o">%</span><span class="n">killbgscripts</span>  <span class="o">%</span><span class="n">ldir</span>  <span class="o">%</span><span class="n">less</span>  <span class="o">%</span><span class="n">lf</span>  <span class="o">%</span><span class="n">lk</span>  <span class="o">%</span><span class="n">ll</span>  <span class="o">%</span><span class="n">load</span>  <span class="o">%</span><span class="n">load_ext</span>  <span class="o">%</span><span class="n">loadpy</span>  <span class="o">%</span><span class="n">logoff</span>  <span class="o">%</span><span class="n">logon</span>  <span class="o">%</span><span class="n">logstart</span>  <span class="o">%</span><span class="n">logstate</span>  <span class="o">%</span><span class="n">logstop</span>  <span class="o">%</span><span class="n">ls</span>  <span class="o">%</span><span class="n">lsmagic</span>  <span class="o">%</span><span class="n">lx</span>  <span class="o">%</span><span class="n">macro</span>  <span class="o">%</span><span class="n">magic</span>  <span class="o">%</span><span class="n">man</span>  <span class="o">%</span><span class="n">matplotlib</span>  <span class="o">%</span><span class="n">mkdir</span>  <span class="o">%</span><span class="n">more</span>  <span class="o">%</span><span class="n">mv</span>  <span class="o">%</span><span class="n">notebook</span>  <span class="o">%</span><span class="n">page</span>  <span class="o">%</span><span class="n">pastebin</span>  <span class="o">%</span><span class="n">pdb</span>  <span class="o">%</span><span class="n">pdef</span>  <span class="o">%</span><span class="n">pdoc</span>  <span class="o">%</span><span class="n">pfile</span>  <span class="o">%</span><span class="n">pinfo</span>  <span class="o">%</span><span class="n">pinfo2</span>  <span class="o">%</span><span class="n">popd</span>  <span class="o">%</span><span class="n">pprint</span>  <span class="o">%</span><span class="n">precision</span>  <span class="o">%</span><span class="n">profile</span>  <span class="o">%</span><span class="n">prun</span>  <span class="o">%</span><span class="n">psearch</span>  <span class="o">%</span><span class="n">psource</span>  <span class="o">%</span><span class="n">pushd</span>  <span class="o">%</span><span class="n">pwd</span>  <span class="o">%</span><span class="n">pycat</span>  <span class="o">%</span><span class="n">pylab</span>  <span class="o">%</span><span class="n">qtconsole</span>  <span class="o">%</span><span class="n">quickref</span>  <span class="o">%</span><span class="n">recall</span>  <span class="o">%</span><span class="n">rehashx</span>  <span class="o">%</span><span class="n">reload_ext</span>  <span class="o">%</span><span class="n">rep</span>  <span class="o">%</span><span class="n">rerun</span>  <span class="o">%</span><span class="n">reset</span>  <span class="o">%</span><span class="n">reset_selective</span>  <span class="o">%</span><span class="n">rm</span>  <span class="o">%</span><span class="n">rmdir</span>  <span class="o">%</span><span class="n">run</span>  <span class="o">%</span><span class="n">save</span>  <span class="o">%</span><span class="n">sc</span>  <span class="o">%</span><span class="n">set_env</span>  <span class="o">%</span><span class="n">store</span>  <span class="o">%</span><span class="n">sx</span>  <span class="o">%</span><span class="n">system</span>  <span class="o">%</span><span class="n">tb</span>  <span class="o">%</span><span class="n">time</span>  <span class="o">%</span><span class="n">timeit</span>  <span class="o">%</span><span class="n">unalias</span>  <span class="o">%</span><span class="n">unload_ext</span>  <span class="o">%</span><span class="n">who</span>  <span class="o">%</span><span class="n">who_ls</span>  <span class="o">%</span><span class="n">whos</span>  <span class="o">%</span><span class="n">xdel</span>  <span class="o">%</span><span class="n">xmode</span>
+
+<span class="n">Available</span> <span class="n">cell</span> <span class="n">magics</span><span class="p">:</span><span class="o">%%</span><span class="err">!</span>  <span class="o">%%</span><span class="n">HTML</span>  <span class="o">%%</span><span class="n">SVG</span>  <span class="o">%%</span><span class="n">bash</span>  <span class="o">%%</span><span class="n">capture</span>  <span class="o">%%</span><span class="n">debug</span>  <span class="o">%%</span><span class="nb">file</span>  <span class="o">%%</span><span class="n">html</span>  <span class="o">%%</span><span class="n">javascript</span>  <span class="o">%%</span><span class="n">js</span>  <span class="o">%%</span><span class="n">latex</span>  <span class="o">%%</span><span class="n">perl</span>  <span class="o">%%</span><span class="n">prun</span>  <span class="o">%%</span><span class="n">pypy</span>  <span class="o">%%</span><span class="n">python</span>  <span class="o">%%</span><span class="n">python2</span>  <span class="o">%%</span><span class="n">python3</span>  <span class="o">%%</span><span class="n">ruby</span>  <span class="o">%%</span><span class="n">script</span>  <span class="o">%%</span><span class="n">sh</span>  <span class="o">%%</span><span class="n">svg</span>  <span class="o">%%</span><span class="n">sx</span>  <span class="o">%%</span><span class="n">system</span>  <span class="o">%%</span><span class="n">time</span>  <span class="o">%%</span><span class="n">timeit</span>  <span class="o">%%</span><span class="n">writefile</span>
+
+<span class="n">Automagic</span> <span class="ow">is</span> <span class="n">ON</span><span class="p">,</span> <span class="o">%</span> <span class="n">prefix</span> <span class="n">IS</span> <span class="n">NOT</span> <span class="n">needed</span> <span class="k">for</span> <span class="n">line</span> <span class="n">magics</span><span class="o">.</span>
+</code></pre></div></div>
+
+<p>I recommend browsing <a href="http://ipython.readthedocs.io/en/stable/interactive/magics.html">the documentation for all IPython Magic commands</a> as you’ll no doubt find some that work for you. A few of my favorites are below:</p>
+
+<h3 id="6-ipython-magic--env-set-environment-variables">6. IPython Magic – %env: Set Environment Variables</h3>
+
+<p>You can manage environment variables of your notebook without restarting the jupyter server process. Some libraries (like theano) use environment variables to control behavior, %env is the most convenient way.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Running %env without any arguments
+# lists all environment variables
+</span>
+<span class="c1"># The line below sets the environment
+# variable
+</span><span class="o">%</span><span class="n">env</span> <span class="n">OMP_NUM_THREADS</span><span class="o">%</span><span class="n">env</span> <span class="n">OMP_NUM_THREADS</span><span class="o">=</span><span class="mi">4</span>
+<span class="n">env</span><span class="p">:</span> <span class="n">OMP_NUM_THREADS</span><span class="o">=</span><span class="mi">4</span>
+</code></pre></div></div>
+
+<h3 id="7-ipython-magic--run-execute-python-code">7. IPython Magic – %run: Execute python code</h3>
+
+<p><code class="highlighter-rouge">%run</code> can execute python code from .py files – this is well-documented behavior. Lesser known is the fact that it can also execute other jupyter notebooks, which can quite useful.</p>
+
+<p>Note that using <code class="highlighter-rouge">%run</code> is not the same as importing a python module.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># this will execute and show the output from
+# all code cells of the specified notebook
+</span><span class="o">%</span><span class="n">run</span> <span class="o">./</span><span class="n">two</span><span class="o">-</span><span class="n">histograms</span><span class="o">.</span><span class="n">ipynb</span>
+</code></pre></div></div>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/two-hists.png" alt="two-hists" /></p>
+
+<h3 id="8-ipython-magic--load-insert-the-code-from-an-external-script">8. IPython Magic – %load: Insert the code from an external script</h3>
+
+<p>This will replace the contents of the cell with an external script. You can either use a file on your computer as a source, or alternatively a URL.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Before Running
+</span><span class="o">%</span><span class="n">load</span> <span class="o">./</span><span class="n">hello_world</span><span class="o">.</span><span class="n">py</span>
+<span class="c1"># After Running
+# %load ./hello_world.py
+</span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+   <span class="k">print</span><span class="p">(</span><span class="s">"Hello World!"</span><span class="p">)</span>
+<span class="n">Hello</span> <span class="n">World</span><span class="err">!</span>
+</code></pre></div></div>
+
+<h3 id="9-ipython-magic--store-pass-variables-between-notebooks">9. IPython Magic – %store: Pass variables between notebooks.</h3>
+
+<p>The <code class="highlighter-rouge">%store</code> command lets you pass variables between two different notebooks.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">data</span> <span class="o">=</span> <span class="s">'this is the string I want to pass to different notebook'</span>
+<span class="o">%</span><span class="n">store</span> <span class="n">data</span>
+<span class="k">del</span> <span class="n">data</span> <span class="c1"># This has deleted the variable
+</span><span class="n">Stored</span> <span class="s">'data'</span> <span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Now, in a new notebook…</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">store</span> <span class="o">-</span><span class="n">r</span> <span class="n">data</span>
+<span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">this</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">string</span> <span class="n">I</span> <span class="n">want</span> <span class="n">to</span> <span class="k">pass</span> <span class="n">to</span> <span class="n">different</span> <span class="n">notebook</span>
+</code></pre></div></div>
+
+<h3 id="10-ipython-magic--who-list-all-variables-of-global-scope">10. IPython Magic – %who: List all variables of global scope.</h3>
+
+<p>The <code class="highlighter-rouge">%who</code> command without any arguments will list all variables that existing in the global scope. Passing a parameter like <code class="highlighter-rouge">str</code> will list only variables of that type.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">one</span> <span class="o">=</span> <span class="s">"for the money"</span>
+<span class="n">two</span> <span class="o">=</span> <span class="s">"for the show"</span>
+<span class="n">three</span> <span class="o">=</span> <span class="s">"to get ready now go cat go"</span>
+<span class="o">%</span><span class="n">who</span> <span class="nb">str</span>
+<span class="n">one</span>   <span class="n">three</span>   <span class="n">two</span>
+</code></pre></div></div>
+
+<h3 id="11-ipython-magic--timing">11. IPython Magic – Timing</h3>
+
+<p>There are two IPython Magic commands that are useful for timing – <code class="highlighter-rouge">%%time</code> and <code class="highlighter-rouge">%timeit</code>. These are especially handy when you have some slow code and you’re trying to indentify where the issue is.</p>
+
+<p><code class="highlighter-rouge">%%time</code> will give you information about a single run of the code in your cell.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">time</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">):</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span> <span class="c1"># sleep for 0.01 seconds
+</span><span class="n">CPU</span> <span class="n">times</span><span class="p">:</span> <span class="n">user</span> <span class="mf">21.5</span> <span class="n">ms</span><span class="p">,</span> <span class="n">sys</span><span class="p">:</span> <span class="mf">14.8</span> <span class="n">ms</span><span class="p">,</span> <span class="n">total</span><span class="p">:</span> <span class="mf">36.3</span> <span class="n">ms</span>
+<span class="n">Wall</span> <span class="n">time</span><span class="p">:</span> <span class="mf">11.6</span> <span class="n">s</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">%%timeit</code> uses the Python <a href="https://docs.python.org/3.5/library/timeit.html">timeit module</a> which runs a statement 100,000 times (by default) and then provides the mean of the fastest three times.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="o">%</span><span class="n">timeit</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">The</span> <span class="n">slowest</span> <span class="n">run</span> <span class="n">took</span> <span class="mf">7.29</span> <span class="n">times</span> <span class="n">longer</span> <span class="n">than</span> <span class="n">the</span> <span class="n">fastest</span><span class="o">.</span> <span class="n">This</span> <span class="n">could</span> <span class="n">mean</span> <span class="n">that</span> <span class="n">an</span> <span class="n">intermediate</span> <span class="n">result</span> <span class="ow">is</span> <span class="n">being</span> <span class="n">cached</span><span class="o">.</span>
+<span class="mi">100000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">5.5</span> <span class="err">µ</span><span class="n">s</span> <span class="n">per</span> <span class="n">loop</span>
+</code></pre></div></div>
+
+<h3 id="12-ipython-magic--writefile-and-pycat-export-the-contents-of-a-cellshow-the-contents-of-an-external-script">12. IPython Magic – %%writefile and %pycat: Export the contents of a cell/Show the contents of an external script</h3>
+
+<p>Using the <code class="highlighter-rouge">%%writefile</code> magic saves the contents of that cell to an external file. <code class="highlighter-rouge">%pycat</code> does the opposite, and shows you (in a popup) the syntax highlighted contents of an external file.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">writefile</span> <span class="n">pythoncode</span><span class="o">.</span><span class="n">py</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="k">def</span> <span class="nf">append_if_not_exists</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="n">arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">some_useless_slow_function</span><span class="p">():</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+        <span class="n">append_if_not_exists</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">Writing</span> <span class="n">pythoncode</span><span class="o">.</span><span class="n">py</span>
+<span class="o">%</span><span class="n">pycat</span> <span class="n">pythoncode</span><span class="o">.</span><span class="n">py</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="k">def</span> <span class="nf">append_if_not_exists</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+        <span class="n">arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">some_useless_slow_function</span><span class="p">():</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10000</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+        <span class="n">append_if_not_exists</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>### 13. IPython Magic – %prun: Show how much time your program spent in each function.Using <code class="highlighter-rouge">%prun statement_name</code> will give you an ordered table showing you the number of times each internal function was called within the statement, the time each call took as well as the cumulative time of all runs of the function.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">prun</span> <span class="n">some_useless_slow_function</span><span class="p">()</span>
+<span class="mi">26324</span> <span class="n">function</span> <span class="n">calls</span> <span class="ow">in</span> <span class="mf">0.556</span> <span class="n">seconds</span>
+
+<span class="n">Ordered</span> <span class="n">by</span><span class="p">:</span> <span class="n">internal</span> <span class="n">time</span>
+
+<span class="n">ncalls</span>  <span class="n">tottime</span>  <span class="n">percall</span>  <span class="n">cumtime</span>  <span class="n">percall</span> <span class="n">filename</span><span class="p">:</span><span class="n">lineno</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>
+ <span class="mi">10000</span>    <span class="mf">0.527</span>    <span class="mf">0.000</span>    <span class="mf">0.528</span>    <span class="mf">0.000</span> <span class="p">:</span><span class="mi">2</span><span class="p">(</span><span class="n">append_if_not_exists</span><span class="p">)</span>
+ <span class="mi">10000</span>    <span class="mf">0.022</span>    <span class="mf">0.000</span>    <span class="mf">0.022</span>    <span class="mf">0.000</span> <span class="p">{</span><span class="n">method</span> <span class="s">'randint'</span> <span class="n">of</span> <span class="s">'mtrand.RandomState'</span> <span class="n">objects</span><span class="p">}</span>
+     <span class="mi">1</span>    <span class="mf">0.006</span>    <span class="mf">0.006</span>    <span class="mf">0.556</span>    <span class="mf">0.556</span> <span class="p">:</span><span class="mi">6</span><span class="p">(</span><span class="n">some_useless_slow_function</span><span class="p">)</span>
+  <span class="mi">6320</span>    <span class="mf">0.001</span>    <span class="mf">0.000</span>    <span class="mf">0.001</span>    <span class="mf">0.000</span> <span class="p">{</span><span class="n">method</span> <span class="s">'append'</span> <span class="n">of</span> <span class="s">'list'</span> <span class="n">objects</span><span class="p">}</span>
+     <span class="mi">1</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span>    <span class="mf">0.556</span>    <span class="mf">0.556</span> <span class="p">:</span><span class="mi">1</span><span class="p">()</span>
+     <span class="mi">1</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span>    <span class="mf">0.556</span>    <span class="mf">0.556</span> <span class="p">{</span><span class="n">built</span><span class="o">-</span><span class="ow">in</span> <span class="n">method</span> <span class="k">exec</span><span class="p">}</span>
+     <span class="mi">1</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span> <span class="p">{</span><span class="n">method</span> <span class="s">'disable'</span> <span class="n">of</span> <span class="s">'_lsprof.Profiler'</span> <span class="n">objects</span><span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="14-ipython-magic--debugging-with-pdb">14. IPython Magic – Debugging with %pdb</h3>
+
+<p>Jupyter has own interface for <a href="https://docs.python.org/3.5/library/pdb.html">The Python Debugger (<code class="highlighter-rouge">pdb</code>)</a>. This makes it possible to go inside the function and investigate what happens there.</p>
+
+<p>You can view <a href="https://docs.python.org/3.5/library/pdb.html#debugger-commands">a list of accepted commands for <code class="highlighter-rouge">pdb</code> here</a>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">pdb</span>
+
+<span class="k">def</span> <span class="nf">pick_and_take</span><span class="p">():</span>
+    <span class="n">picked</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+    <span class="k">raise</span> <span class="nb">NotImplementedError</span><span class="p">()</span>
+
+<span class="n">pick_and_take</span><span class="p">()</span>
+<span class="n">Automatic</span> <span class="n">pdb</span> <span class="n">calling</span> <span class="n">has</span> <span class="n">been</span> <span class="n">turned</span> <span class="n">ON</span>
+<span class="o">--------------------------------------------------------------------</span>
+<span class="nb">NotImplementedError</span>                       <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span>
+ <span class="ow">in</span> <span class="p">()</span>
+      <span class="mi">5</span>     <span class="k">raise</span> <span class="nb">NotImplementedError</span><span class="p">()</span>
+      <span class="mi">6</span>
+<span class="o">----&gt;</span> <span class="mi">7</span> <span class="n">pick_and_take</span><span class="p">()</span>
+
+ <span class="ow">in</span> <span class="n">pick_and_take</span><span class="p">()</span>
+      <span class="mi">3</span> <span class="k">def</span> <span class="nf">pick_and_take</span><span class="p">():</span>
+      <span class="mi">4</span>     <span class="n">picked</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="o">----&gt;</span> <span class="mi">5</span>     <span class="k">raise</span> <span class="nb">NotImplementedError</span><span class="p">()</span>
+      <span class="mi">6</span>
+      <span class="mi">7</span> <span class="n">pick_and_take</span><span class="p">()</span>
+
+<span class="nb">NotImplementedError</span><span class="p">:</span>
+<span class="o">&gt;</span> <span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="n">pick_and_take</span><span class="p">()</span>
+      <span class="mi">3</span> <span class="k">def</span> <span class="nf">pick_and_take</span><span class="p">():</span>
+      <span class="mi">4</span>     <span class="n">picked</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="o">----&gt;</span> <span class="mi">5</span>     <span class="k">raise</span> <span class="nb">NotImplementedError</span><span class="p">()</span>
+      <span class="mi">6</span>
+      <span class="mi">7</span> <span class="n">pick_and_take</span><span class="p">()</span>
+<span class="n">ipdb</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
+<h3 id="15-ipython-magic--high-resolution-plot-outputs-for-retina-notebooks">15. IPython Magic – High-resolution plot outputs for Retina notebooks</h3>
+
+<p>One line of IPython magic will give you double resolution plot output for Retina screens, such as the more recent Macbooks. <em>Note: the example below won’t render on non-retina screens</em></p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">x</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">x</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+<span class="o">%</span><span class="n">config</span> <span class="n">InlineBackend</span><span class="o">.</span><span class="n">figure_format</span> <span class="o">=</span><span class="s">'retina'</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/hires-1.png" alt="hires-1" /></p>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/hires-2.png" alt="hires-2" /></p>
+
+<h2 id="16-suppress-the-output-of-a-final-function">16. Suppress the output of a final function.</h2>
+
+<p>Sometimes it’s handy to suppress the output of the function on a final line, for instance when plotting. To do this, you just add a semicolon at the end.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span> <span class="nn">numpyx</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span><span class="o">**</span><span class="mf">1.5</span>
+<span class="c1"># Here you get the output of the function
+</span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="p">(</span><span class="n">array</span><span class="p">([</span> <span class="mf">216.</span><span class="p">,</span>  <span class="mf">126.</span><span class="p">,</span>  <span class="mf">106.</span><span class="p">,</span>   <span class="mf">95.</span><span class="p">,</span>   <span class="mf">87.</span><span class="p">,</span>   <span class="mf">81.</span><span class="p">,</span>   <span class="mf">77.</span><span class="p">,</span>   <span class="mf">73.</span><span class="p">,</span>   <span class="mf">71.</span><span class="p">,</span>   <span class="mf">68.</span><span class="p">]),</span> <span class="n">array</span><span class="p">([</span> <span class="mf">0.</span> <span class="p">,</span>  <span class="mf">0.1</span><span class="p">,</span>  <span class="mf">0.2</span><span class="p">,</span>  <span class="mf">0.3</span><span class="p">,</span>  <span class="mf">0.4</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.6</span><span class="p">,</span>  <span class="mf">0.7</span><span class="p">,</span>  <span class="mf">0.8</span><span class="p">,</span>  <span class="mf">0.9</span><span class="p">,</span>  <span class="mf">1.</span> <span class="p">]),</span>
+<span class="o">&lt;</span><span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="mi">10</span> <span class="n">Patch</span> <span class="n">objects</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="c1"># By adding a semicolon at the end, the output is suppressed.plt.hist(x);
+</span></code></pre></div></div>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/hist.png" alt="hist" /></p>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/hist-1582269202752.png" alt="hist" /></p>
+
+<h2 id="17-executing-shell-commands">17. Executing Shell Commands</h2>
+
+<p>It’s easy to execute a shell command from inside your notebook. You can use this to check what datasets are in available in your working folder:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">!</span><span class="n">ls</span> <span class="o">*.</span><span class="n">csv</span>
+<span class="n">nba_2016</span><span class="o">.</span><span class="n">csv</span>             <span class="n">titanic</span><span class="o">.</span><span class="n">csv</span>
+<span class="n">pixar_movies</span><span class="o">.</span><span class="n">csv</span>         <span class="n">whitehouse_employees</span><span class="o">.</span><span class="n">csv</span>
+</code></pre></div></div>
+
+<p>Or to check and manage packages.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">numpy</span>
+<span class="err">!</span><span class="n">pip</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">grep</span> <span class="n">pandas</span>
+<span class="n">Requirement</span> <span class="n">already</span> <span class="n">satisfied</span> <span class="p">(</span><span class="n">use</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">to</span> <span class="n">upgrade</span><span class="p">):</span> <span class="n">numpy</span> <span class="ow">in</span> <span class="o">/</span><span class="n">Library</span><span class="o">/</span><span class="n">Frameworks</span><span class="o">/</span><span class="n">Python</span><span class="o">.</span><span class="n">framework</span><span class="o">/</span><span class="n">Versions</span><span class="o">/</span><span class="mf">3.4</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.4</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span>
+<span class="n">pandas</span> <span class="p">(</span><span class="mf">0.18.1</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="18-using-latex-for-forumlas">18. Using LaTeX for forumlas</h2>
+
+<p>When you write <a href="https://www.latex-project.org/">LaTeX</a> in a Markdown cell, it will be rendered as a formula using MathJax.</p>
+
+<p>This:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span><span class="n">P</span><span class="p">(</span><span class="n">A</span> \<span class="n">mid</span> <span class="n">B</span><span class="p">)</span> <span class="o">=</span> \<span class="n">frac</span><span class="p">{</span><span class="n">P</span><span class="p">(</span><span class="n">B</span> \<span class="n">mid</span> <span class="n">A</span><span class="p">)</span><span class="n">P</span><span class="p">(</span><span class="n">A</span><span class="p">)}{</span><span class="n">P</span><span class="p">(</span><span class="n">B</span><span class="p">)}</span><span class="err">$</span>
+</code></pre></div></div>
+
+<p>Becomes this:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>P(A</td>
+      <td>B)=P(B</td>
+      <td>A)P(A)P(B)</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Markdown is an important part of notebooks, so don’t forget to use its expressiveness!</p>
+
+<h2 id="19-run-code-from-a-different-kernel-in-a-notebook">19. Run code from a different kernel in a notebook</h2>
+
+<p>If you want to, you can combine code from multiple kernels into one notebook.</p>
+
+<p>Just use IPython Magics with the name of your kernel at the start of each cell that you want to use that Kernel for:</p>
+
+<ul>
+  <li><code class="highlighter-rouge">%%bash</code></li>
+  <li><code class="highlighter-rouge">%%HTML</code></li>
+  <li><code class="highlighter-rouge">%%python2</code></li>
+  <li><code class="highlighter-rouge">%%python3</code></li>
+  <li><code class="highlighter-rouge">%%ruby</code></li>
+  <li><code class="highlighter-rouge">%%perl</code></li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%%</span><span class="n">bash</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="p">{</span><span class="mf">1..5</span><span class="p">}</span>
+<span class="n">do</span>
+   <span class="n">echo</span> <span class="s">"i is $i"</span>
+<span class="n">done</span>
+<span class="n">i</span> <span class="ow">is</span> <span class="mi">1</span>
+<span class="n">i</span> <span class="ow">is</span> <span class="mi">2</span>
+<span class="n">i</span> <span class="ow">is</span> <span class="mi">3</span>
+<span class="n">i</span> <span class="ow">is</span> <span class="mi">4</span>
+<span class="n">i</span> <span class="ow">is</span> <span class="mi">5</span>
+</code></pre></div></div>
+
+<h2 id="20-install-other-kernels-for-jupyter">20. Install other kernels for Jupyter</h2>
+
+<p>One of the nice features about Jupyter is ability to run kernels for different languages. As an example, here is how to get and R kernel running.</p>
+
+<h3 id="easy-option-installing-the-r-kernel-using-anaconda">Easy Option: Installing the R Kernel Using Anaconda</h3>
+
+<p>If you used Anaconda to set up your environment, getting R working is extremely easy. Just run the below in your terminal:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">r</span> <span class="n">r</span><span class="o">-</span><span class="n">essentials</span>
+</code></pre></div></div>
+
+<h3 id="less-easy-option-installing-the-r-kernel-manually">Less Easy Option: Installing the R Kernel Manually</h3>
+
+<p>If you are not using Anaconda, the process is a little more complex. Firstly, you’ll need to install R from <a href="https://cloud.r-project.org/">CRAN</a> if you haven’t already.</p>
+
+<p>Once that’s done, fire up an R console and run the following:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">install</span><span class="o">.</span><span class="n">packages</span><span class="p">(</span><span class="n">c</span><span class="p">(</span><span class="s">'repr'</span><span class="p">,</span> <span class="s">'IRdisplay'</span><span class="p">,</span> <span class="s">'crayon'</span><span class="p">,</span> <span class="s">'pbdZMQ'</span><span class="p">,</span> <span class="s">'devtools'</span><span class="p">))</span>
+<span class="n">devtools</span><span class="p">::</span><span class="n">install_github</span><span class="p">(</span><span class="s">'IRkernel/IRkernel'</span><span class="p">)</span>
+<span class="n">IRkernel</span><span class="p">::</span><span class="n">installspec</span><span class="p">()</span>  <span class="c1"># to register the kernel in the current R installation
+</span></code></pre></div></div>
+
+<h2 id="21-running-r-and-python-in-the-same-notebook">21. Running R and Python in the same notebook.</h2>
+
+<p>The best solution to this is to install <a href="http://rpy2.bitbucket.org/">rpy2</a> (requires a working version of R as well), which can be easily done with <code class="highlighter-rouge">pip</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pip</span> <span class="n">install</span> <span class="n">rpy2</span>
+</code></pre></div></div>
+
+<p>You can then use the two languages together, and even pass variables inbetween:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">load_ext</span> <span class="n">rpy2</span><span class="o">.</span><span class="n">ipython</span>
+<span class="o">%</span><span class="n">R</span> <span class="n">require</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int32</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s">'Letter'</span><span class="p">:</span> <span class="p">[</span><span class="s">'a'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="s">'a'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'b'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">,</span> <span class="s">'c'</span><span class="p">],</span>
+        <span class="s">'X'</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+        <span class="s">'Y'</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span>
+        <span class="s">'Z'</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+    <span class="p">})</span>
+<span class="o">%%</span><span class="n">R</span> <span class="o">-</span><span class="n">i</span> <span class="n">df</span>
+<span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span> <span class="n">Y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">Letter</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">Z</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/ggplot.png" alt="ggplot" /></p>
+
+<p><em>Example courtesy Revolutions Blog</em></p>
+
+<h2 id="22-writing-functions-in-other-languages">22. Writing functions in other languages</h2>
+
+<p>Sometimes the speed of numpy is not enough and I need to write some fast code.
+In principle, you can compile function in the dynamic library and write python wrappers…</p>
+
+<p>But it is much better when this boring part is done for you, right?</p>
+
+<p>You can write functions in cython or fortran and use those directly from python code.</p>
+
+<p>First you’ll need to install:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">cython</span> <span class="n">fortran</span><span class="o">-</span><span class="n">magic</span>
+<span class="o">%</span><span class="n">load_ext</span> <span class="n">Cython</span>
+<span class="o">%%</span><span class="n">cython</span>
+<span class="k">def</span> <span class="nf">myltiply_by_2</span><span class="p">(</span><span class="nb">float</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span>
+<span class="n">myltiply_by_2</span><span class="p">(</span><span class="mf">23.</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Personally I prefer to use fortran, which I found very convenient for writing number-crunching functions. More details of usage can be found <a href="http://arogozhnikov.github.io/2015/11/29/using-fortran-from-python.html">here</a>.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">%</span><span class="n">load_ext</span> <span class="n">fortranmagic</span>
+<span class="o">%%</span><span class="n">fortran</span>
+<span class="n">subroutine</span> <span class="n">compute_fortran</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+    <span class="n">real</span><span class="p">,</span> <span class="n">intent</span><span class="p">(</span><span class="ow">in</span><span class="p">)</span> <span class="p">::</span> <span class="n">x</span><span class="p">(:),</span> <span class="n">y</span><span class="p">(:)</span>
+    <span class="n">real</span><span class="p">,</span> <span class="n">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="p">::</span> <span class="n">z</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="n">z</span> <span class="o">=</span> <span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">end</span> <span class="n">subroutine</span> <span class="n">compute_fortran</span>
+<span class="n">compute_fortran</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+</code></pre></div></div>
+
+<p>There are also different jitter systems which can speed up your python code. More examples <a href="http://arogozhnikov.github.io/2015/09/08/SpeedBenchmarks.html">can be found here</a>.</p>
+
+<h2 id="23-multicursor-support">23. Multicursor support</h2>
+
+<p>Jupyter supports mutiple cursors, similar to Sublime Text. Simply click and drag your mouse while holding down <code class="highlighter-rouge">Alt</code>.</p>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/multiline.gif" alt="multiline" /></p>
+
+<p><em>Multicursor support.</em></p>
+
+<h2 id="24-jupyter-contrib-extensions">24. Jupyter-contrib extensions</h2>
+
+<p><a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">Jupyter-contrib extensions</a> is a family of extensions which give Jupyter a lot more functionality, including e.g. <code class="highlighter-rouge">jupyter spell-checker</code> and <code class="highlighter-rouge">code-formatter</code>.</p>
+
+<p>The following commands will install the extensions, as well as a menu based configurator that will help you browse and enable the extensions from the main Jupyter notebook screen.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">ipython</span><span class="o">-</span><span class="n">contrib</span><span class="o">/</span><span class="n">jupyter_contrib_nbextensions</span><span class="o">/</span><span class="n">tarball</span><span class="o">/</span><span class="n">master</span>
+<span class="err">!</span><span class="n">pip</span> <span class="n">install</span> <span class="n">jupyter_nbextensions_configurator</span>
+<span class="err">!</span><span class="n">jupyter</span> <span class="n">contrib</span> <span class="n">nbextension</span> <span class="n">install</span> <span class="o">--</span><span class="n">user</span>
+<span class="err">!</span><span class="n">jupyter</span> <span class="n">nbextensions_configurator</span> <span class="n">enable</span> <span class="o">--</span><span class="n">user</span>
+</code></pre></div></div>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/nbextensions.png" alt="nbextensions" /></p>
+
+<p><em>The nbextension configurator.</em></p>
+
+<h2 id="25-create-a-presentation-from-a-jupyter-notebook">25. Create a presentation from a Jupyter notebook.</h2>
+
+<p>Damian Avila’s <a href="https://github.com/damianavila/RISE">RISE</a> allows you to create a powerpoint style presentation from an existing notebook.</p>
+
+<p>You can install RISE using conda:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">damianavila82</span> <span class="n">rise</span>
+</code></pre></div></div>
+
+<p>Or alternatively pip:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pip</span> <span class="n">install</span> <span class="n">RISE</span>
+</code></pre></div></div>
+
+<p>And then run the following code to install and enable the extension:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">jupyter</span><span class="o">-</span><span class="n">nbextension</span> <span class="n">install</span> <span class="n">rise</span> <span class="o">--</span><span class="n">py</span> <span class="o">--</span><span class="n">sys</span><span class="o">-</span><span class="n">prefix</span>
+<span class="n">jupyter</span><span class="o">-</span><span class="n">nbextension</span> <span class="n">enable</span> <span class="n">rise</span> <span class="o">--</span><span class="n">py</span> <span class="o">--</span><span class="n">sys</span><span class="o">-</span><span class="n">prefix</span>
+</code></pre></div></div>
+
+<h2 id="26-the-jupyter-output-system">26. The Jupyter output system</h2>
+
+<p>Notebooks are displayed as HTML and the cell output can be HTML, so you can return virtually anything: video/audio/images.</p>
+
+<p>In this example I scan the folder with images in my repository and show thumbnails of the first 5:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">Image</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="s">'../images/ml_demonstrations/'</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s">'.png'</span><span class="p">)]</span>
+<span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">[:</span><span class="mi">5</span><span class="p">]:</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="s">'../images/ml_demonstrations/'</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/img1.png" alt="img1" /></p>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/img2.png" alt="img2" /></p>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/img3.png" alt="img3" /></p>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/img4.png" alt="img4" /></p>
+
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/img5.png" alt="img5" /></p>
+
+<p>We can create the same list with a bash command, because magics and bash calls return python variables:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">names</span> <span class="o">=</span> <span class="err">!</span><span class="n">ls</span> <span class="o">../</span><span class="n">images</span><span class="o">/</span><span class="n">ml_demonstrations</span><span class="o">/*.</span><span class="n">png</span>
+<span class="n">names</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+<span class="p">[</span><span class="s">'../images/ml_demonstrations/colah_embeddings.png'</span><span class="p">,</span>
+<span class="s">'../images/ml_demonstrations/convnetjs.png'</span><span class="p">,</span>
+<span class="s">'../images/ml_demonstrations/decision_tree.png'</span><span class="p">,</span>
+<span class="s">'../images/ml_demonstrations/decision_tree_in_course.png'</span><span class="p">,</span>
+<span class="s">'../images/ml_demonstrations/dream_mnist.png'</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="27-big-data-analysis">27. ‘Big data’ analysis</h2>
+
+<p>A number of solutions are available for querying/processing large data samples:</p>
+
+<ul>
+  <li><a href="https://github.com/ipython/ipyparallel">ipyparallel (formerly ipython cluster)</a> is a good option for simple map-reduce operations in python. We use it in <a href="https://github.com/yandex/rep">rep</a> to train many machine learning models in parallel</li>
+  <li><a href="http://www.cloudera.com/documentation/enterprise/5-5-x/topics/spark_ipython.html">pyspark</a></li>
+  <li>spark-sql magic <a href="https://github.com/jupyter-incubator/sparkmagic">%%sql</a></li>
+</ul>
+
+<h2 id="28-sharing-notebooks">28. Sharing notebooks</h2>
+
+<p>The easiest way to share your notebook is simply using the notebook file (.ipynb), but for those who don’t use Jupyter, you have a few options:</p>
+
+<ul>
+  <li>
+    <p>Convert notebooks to html file using the <code class="highlighter-rouge">File &gt; Download as &gt; HTML</code> Menu option.</p>
+  </li>
+  <li>
+    <p>Share your notebook file with</p>
+
+    <p>gists</p>
+
+    <p>or on github, both of which render the notebooks. See</p>
+
+    <p>this example</p>
+
+    <p>.</p>
+
+    <ul>
+      <li>If you upload your notebook to a github repository, you can use the handy <a href="http://mybinder.org/">mybinder</a> service to allow someone half an hour of interactive Jupyter access to your repository.</li>
+    </ul>
+  </li>
+  <li>
+    <p>Setup your own system with <a href="https://github.com/jupyterhub/jupyterhub">jupyterhub</a>, this is very handy when you organize mini-course or workshop and don’t have time to care about students machines.</p>
+  </li>
+  <li>
+    <p>Store your notebook e.g. in dropbox and put the link to <a href="http://nbviewer.jupyter.org/">nbviewer</a>. nbviewer will render the notebook from whichever source you host it.</p>
+  </li>
+  <li>
+    <p>Use the <code class="highlighter-rouge">File &gt; Download as &gt; PDF</code> menu to save your notebook as a PDF. If you’re going this route, I highly recommend reading Julius Schulz’s excellent article <a href="http://blog.juliusschulz.de/blog/ultimate-ipython-notebook">Making publication ready Python notebooks</a>.</p>
+  </li>
+  <li>
+    <p><a href="https://www.dataquest.io/blog/how-to-setup-a-data-science-blog/">Create a blog using Pelican from your Jupyter notebooks</a>.</p>
+  </li>
+</ul>
+
