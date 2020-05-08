@@ -1,11 +1,13 @@
+---
+toc: true
+layout: post
+description: 28 Jupyter Notebook Tips, Tricks, and Shortcuts
+categories: [markdown]
+title: 28 Jupyter Notebook Tips, Tricks, and Shortcuts
+---
 # 28 Jupyter Notebook Tips, Tricks, and Shortcuts
 
 Borrowed from [https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/]()
-
-1. TOC
-
-{:toc}
-
 
 ![interface-screenshot](../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/interface-screenshot.png)
 
