@@ -1,3 +1,10 @@
+---
+toc: false
+layout: post
+description: De-googling Android Phones.
+categories: [markdown]
+title: De-googling Android Phones.
+---
 # De-googling Android Phones.
 
 Borrowed from:
