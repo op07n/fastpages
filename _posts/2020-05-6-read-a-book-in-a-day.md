@@ -1,12 +1,15 @@
+---
+toc: true
+layout: post
+description: How to speed-read and remember it all.
+categories: [markdown]
+title: READ A BOOK IN A DAY
+---
 # READ A BOOK IN A DAY (how to speed-read and remember it all)
 
 Borrowed from:
 
 [![Alt text](https://img.youtube.com/vi/0Q0we4LjSws/0.jpg)](https://www.youtube.com/watch?v=0Q0we4LjSws)
-
-1. TOC
-{:toc}
-
 
 ## 1. Intent (have a strong intent and motivation to read)
 
