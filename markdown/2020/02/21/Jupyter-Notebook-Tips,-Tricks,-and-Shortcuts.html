@@ -1,12 +1,175 @@
-<h1 id="28-jupyter-notebook-tips-tricks-and-shortcuts">28 Jupyter Notebook Tips, Tricks, and Shortcuts</h1>
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>28 Jupyter Notebook Tips, Tricks, and Shortcuts | fastpages</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="28 Jupyter Notebook Tips, Tricks, and Shortcuts" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="28 Jupyter Notebook Tips, Tricks, and Shortcuts" />
+<meta property="og:description" content="28 Jupyter Notebook Tips, Tricks, and Shortcuts" />
+<link rel="canonical" href="https://op07n.github.io/fastpages/markdown/2020/02/21/Jupyter-Notebook-Tips,-Tricks,-and-Shortcuts.html" />
+<meta property="og:url" content="https://op07n.github.io/fastpages/markdown/2020/02/21/Jupyter-Notebook-Tips,-Tricks,-and-Shortcuts.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-02-21T00:00:00-06:00" />
+<script type="application/ld+json">
+{"datePublished":"2020-02-21T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://op07n.github.io/fastpages/markdown/2020/02/21/Jupyter-Notebook-Tips,-Tricks,-and-Shortcuts.html"},"description":"28 Jupyter Notebook Tips, Tricks, and Shortcuts","@type":"BlogPosting","url":"https://op07n.github.io/fastpages/markdown/2020/02/21/Jupyter-Notebook-Tips,-Tricks,-and-Shortcuts.html","headline":"28 Jupyter Notebook Tips, Tricks, and Shortcuts","dateModified":"2020-02-21T00:00:00-06:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/fastpages/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://op07n.github.io/fastpages/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/fastpages/images/favicon.ico"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>28 Jupyter Notebook Tips, Tricks, and Shortcuts | fastpages</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="28 Jupyter Notebook Tips, Tricks, and Shortcuts" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="28 Jupyter Notebook Tips, Tricks, and Shortcuts" />
+<meta property="og:description" content="28 Jupyter Notebook Tips, Tricks, and Shortcuts" />
+<link rel="canonical" href="https://op07n.github.io/fastpages/markdown/2020/02/21/Jupyter-Notebook-Tips,-Tricks,-and-Shortcuts.html" />
+<meta property="og:url" content="https://op07n.github.io/fastpages/markdown/2020/02/21/Jupyter-Notebook-Tips,-Tricks,-and-Shortcuts.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-02-21T00:00:00-06:00" />
+<script type="application/ld+json">
+{"datePublished":"2020-02-21T00:00:00-06:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://op07n.github.io/fastpages/markdown/2020/02/21/Jupyter-Notebook-Tips,-Tricks,-and-Shortcuts.html"},"description":"28 Jupyter Notebook Tips, Tricks, and Shortcuts","@type":"BlogPosting","url":"https://op07n.github.io/fastpages/markdown/2020/02/21/Jupyter-Notebook-Tips,-Tricks,-and-Shortcuts.html","headline":"28 Jupyter Notebook Tips, Tricks, and Shortcuts","dateModified":"2020-02-21T00:00:00-06:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://op07n.github.io/fastpages/feed.xml" title="fastpages" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+<script type="text/javascript">
+require.config({
+  paths: {
+    jquery: 'https://code.jquery.com/jquery-3.5.0.min',
+    plotly: 'https://cdn.plot.ly/plotly-latest.min'
+  },
+
+  shim: {
+    plotly: {
+      deps: ['jquery'],
+      exports: 'plotly'
+    }
+  }
+});
+</script>
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/fastpages/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/fastpages/about/">About Me</a><a class="page-link" href="/fastpages/search/">Search</a><a class="page-link" href="/fastpages/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">28 Jupyter Notebook Tips, Tricks, and Shortcuts</h1><p class="page-description">28 Jupyter Notebook Tips, Tricks, and Shortcuts</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-02-21T00:00:00-06:00" itemprop="datePublished">
+        Feb 21, 2020
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      17 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/fastpages/categories/#markdown">markdown</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul class="section-nav">
+<li class="toc-entry toc-h1"><a href="#28-jupyter-notebook-tips-tricks-and-shortcuts">28 Jupyter Notebook Tips, Tricks, and Shortcuts</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#1-keyboard-shortcuts">1. Keyboard Shortcuts</a></li>
+<li class="toc-entry toc-h2"><a href="#2-pretty-display-of-variables">2. Pretty Display of Variables</a></li>
+<li class="toc-entry toc-h2"><a href="#3-easy-links-to-documentation">3. Easy links to documentation</a></li>
+<li class="toc-entry toc-h2"><a href="#4-plotting-in-notebooks">4. Plotting in notebooks</a></li>
+<li class="toc-entry toc-h2"><a href="#5-ipython-magic-commands">5. IPython Magic Commands</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#6-ipython-magic--env-set-environment-variables">6. IPython Magic – %env: Set Environment Variables</a></li>
+<li class="toc-entry toc-h3"><a href="#7-ipython-magic--run-execute-python-code">7. IPython Magic – %run: Execute python code</a></li>
+<li class="toc-entry toc-h3"><a href="#8-ipython-magic--load-insert-the-code-from-an-external-script">8. IPython Magic – %load: Insert the code from an external script</a></li>
+<li class="toc-entry toc-h3"><a href="#9-ipython-magic--store-pass-variables-between-notebooks">9. IPython Magic – %store: Pass variables between notebooks.</a></li>
+<li class="toc-entry toc-h3"><a href="#10-ipython-magic--who-list-all-variables-of-global-scope">10. IPython Magic – %who: List all variables of global scope.</a></li>
+<li class="toc-entry toc-h3"><a href="#11-ipython-magic--timing">11. IPython Magic – Timing</a></li>
+<li class="toc-entry toc-h3"><a href="#12-ipython-magic--writefile-and-pycat-export-the-contents-of-a-cellshow-the-contents-of-an-external-script">12. IPython Magic – %%writefile and %pycat: Export the contents of a cell/Show the contents of an external script</a></li>
+<li class="toc-entry toc-h3"><a href="#14-ipython-magic--debugging-with-pdb">14. IPython Magic – Debugging with %pdb</a></li>
+<li class="toc-entry toc-h3"><a href="#15-ipython-magic--high-resolution-plot-outputs-for-retina-notebooks">15. IPython Magic – High-resolution plot outputs for Retina notebooks</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#16-suppress-the-output-of-a-final-function">16. Suppress the output of a final function.</a></li>
+<li class="toc-entry toc-h2"><a href="#17-executing-shell-commands">17. Executing Shell Commands</a></li>
+<li class="toc-entry toc-h2"><a href="#18-using-latex-for-forumlas">18. Using LaTeX for forumlas</a></li>
+<li class="toc-entry toc-h2"><a href="#19-run-code-from-a-different-kernel-in-a-notebook">19. Run code from a different kernel in a notebook</a></li>
+<li class="toc-entry toc-h2"><a href="#20-install-other-kernels-for-jupyter">20. Install other kernels for Jupyter</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#easy-option-installing-the-r-kernel-using-anaconda">Easy Option: Installing the R Kernel Using Anaconda</a></li>
+<li class="toc-entry toc-h3"><a href="#less-easy-option-installing-the-r-kernel-manually">Less Easy Option: Installing the R Kernel Manually</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#21-running-r-and-python-in-the-same-notebook">21. Running R and Python in the same notebook.</a></li>
+<li class="toc-entry toc-h2"><a href="#22-writing-functions-in-other-languages">22. Writing functions in other languages</a></li>
+<li class="toc-entry toc-h2"><a href="#23-multicursor-support">23. Multicursor support</a></li>
+<li class="toc-entry toc-h2"><a href="#24-jupyter-contrib-extensions">24. Jupyter-contrib extensions</a></li>
+<li class="toc-entry toc-h2"><a href="#25-create-a-presentation-from-a-jupyter-notebook">25. Create a presentation from a Jupyter notebook.</a></li>
+<li class="toc-entry toc-h2"><a href="#26-the-jupyter-output-system">26. The Jupyter output system</a></li>
+<li class="toc-entry toc-h2"><a href="#27-big-data-analysis">27. ‘Big data’ analysis</a></li>
+<li class="toc-entry toc-h2"><a href="#28-sharing-notebooks">28. Sharing notebooks</a></li>
+</ul>
+</li>
+</ul><h1 id="28-jupyter-notebook-tips-tricks-and-shortcuts">
+<a class="anchor" href="#28-jupyter-notebook-tips-tricks-and-shortcuts" aria-hidden="true"><span class="octicon octicon-link"></span></a>28 Jupyter Notebook Tips, Tricks, and Shortcuts</h1>
 
 <p>Borrowed from <a href="">https://www.dataquest.io/blog/jupyter-notebook-tips-tricks-shortcuts/</a></p>
 
-<ol>
-  <li>TOC</li>
-</ol>
-
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/interface-screenshot.png" alt="interface-screenshot" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/interface-screenshot.png" alt="interface-screenshot"></p>
 
 <p><em>The Jupyter interface.</em></p>
 
@@ -16,46 +179,58 @@
 
 <p>We’re going to show you 28 tips and tricks to make your life working with Jupyter easier.</p>
 
-<h2 id="1-keyboard-shortcuts">1. Keyboard Shortcuts</h2>
+<h2 id="1-keyboard-shortcuts">
+<a class="anchor" href="#1-keyboard-shortcuts" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Keyboard Shortcuts</h2>
 
 <p>As any power user knows, keyboard shortcuts will save you lots of time. Jupyter stores a list of keybord shortcuts under the menu at the top: <code class="highlighter-rouge">Help &gt; Keyboard Shortcuts</code>, or by pressing <code class="highlighter-rouge">H</code> in command mode (more on that later). It’s worth checking this each time you update Jupyter, as more shortcuts are added all the time.</p>
 
 <p>Another way to access keyboard shortcuts, and a handy way to learn them is to use the command palette: <code class="highlighter-rouge">Cmd + Shift + P</code> (or <code class="highlighter-rouge">Ctrl + Shift + P</code> on Linux and Windows). This dialog box helps you run any command by name – useful if you don’t know the keyboard shortcut for an action or if what you want to do does not have a keyboard shortcut. The functionality is similar to Spotlight search on a Mac, and once you start using it you’ll wonder how you lived without it!</p>
 
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/command-palette.gif" alt="command-palette" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/command-palette.gif" alt="command-palette"></p>
 
 <p><em>The command palette.</em></p>
 
 <p>Some of my favorites:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">Esc</code> will take you into command mode where you can navigate around your notebook with arrow keys.</li>
+  <li>
+<code class="highlighter-rouge">Esc</code> will take you into command mode where you can navigate around your notebook with arrow keys.</li>
   <li>While in command mode:
     <ul>
-      <li><code class="highlighter-rouge">A</code> to insert a new cell above the current cell, <code class="highlighter-rouge">B</code> to insert a new cell below.</li>
-      <li><code class="highlighter-rouge">M</code> to change the current cell to Markdown, <code class="highlighter-rouge">Y</code> to change it back to code</li>
-      <li><code class="highlighter-rouge">D + D</code> (press the key twice) to delete the current cell</li>
+      <li>
+<code class="highlighter-rouge">A</code> to insert a new cell above the current cell, <code class="highlighter-rouge">B</code> to insert a new cell below.</li>
+      <li>
+<code class="highlighter-rouge">M</code> to change the current cell to Markdown, <code class="highlighter-rouge">Y</code> to change it back to code</li>
+      <li>
+<code class="highlighter-rouge">D + D</code> (press the key twice) to delete the current cell</li>
     </ul>
   </li>
-  <li><code class="highlighter-rouge">Enter</code> will take you from command mode back into edit mode for the given cell.</li>
-  <li><code class="highlighter-rouge">Shift + Tab</code> will show you the Docstring (documentation) for the the object you have just typed in a code cell – you can keep pressing this short cut to cycle through a few modes of documentation.</li>
-  <li><code class="highlighter-rouge">Ctrl + Shift + -</code> will split the current cell into two from where your cursor is.</li>
-  <li><code class="highlighter-rouge">Esc + F</code> Find and replace on your code but not the outputs.</li>
-  <li><code class="highlighter-rouge">Esc + O</code> Toggle cell output.</li>
+  <li>
+<code class="highlighter-rouge">Enter</code> will take you from command mode back into edit mode for the given cell.</li>
+  <li>
+<code class="highlighter-rouge">Shift + Tab</code> will show you the Docstring (documentation) for the the object you have just typed in a code cell – you can keep pressing this short cut to cycle through a few modes of documentation.</li>
+  <li>
+<code class="highlighter-rouge">Ctrl + Shift + -</code> will split the current cell into two from where your cursor is.</li>
+  <li>
+<code class="highlighter-rouge">Esc + F</code> Find and replace on your code but not the outputs.</li>
+  <li>
+<code class="highlighter-rouge">Esc + O</code> Toggle cell output.</li>
   <li>Select Multiple Cells:
     <ul>
-      <li><code class="highlighter-rouge">Shift + J</code> or <code class="highlighter-rouge">Shift + Down</code> selects the next sell in a downwards direction. You can also select sells in an upwards direction by using <code class="highlighter-rouge">Shift + K</code> or <code class="highlighter-rouge">Shift + Up</code>.</li>
+      <li>
+<code class="highlighter-rouge">Shift + J</code> or <code class="highlighter-rouge">Shift + Down</code> selects the next sell in a downwards direction. You can also select sells in an upwards direction by using <code class="highlighter-rouge">Shift + K</code> or <code class="highlighter-rouge">Shift + Up</code>.</li>
       <li>Once cells are selected, you can then delete / copy / cut / paste / run them as a batch. This is helpful when you need to move parts of a notebook.</li>
       <li>You can also use <code class="highlighter-rouge">Shift + M</code> to merge multiple cells.</li>
     </ul>
   </li>
 </ul>
 
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/multi-merge.gif" alt="multi-merge" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/multi-merge.gif" alt="multi-merge"></p>
 
 <p><em>Merging multiple cells.</em></p>
 
-<h2 id="2-pretty-display-of-variables">2. Pretty Display of Variables</h2>
+<h2 id="2-pretty-display-of-variables">
+<a class="anchor" href="#2-pretty-display-of-variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Pretty Display of Variables</h2>
 
 <p>The first part of this is pretty widely known. By finishing a Jupyter cell with the name of a variable or unassigned output of a statement, Jupyter will display that variable without the need for a print statement. This is especially useful when dealing with Pandas DataFrames, as the output is neatly formatted into a table.</p>
 
@@ -187,7 +362,8 @@
 </span><span class="n">c</span><span class="o">.</span><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s">"all"</span>
 </code></pre></div></div>
 
-<h2 id="3-easy-links-to-documentation">3. Easy links to documentation</h2>
+<h2 id="3-easy-links-to-documentation">
+<a class="anchor" href="#3-easy-links-to-documentation" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Easy links to documentation</h2>
 
 <p>Inside the <code class="highlighter-rouge">Help</code> menu you’ll find handy links to the online documentation for common libraries including NumPy, Pandas, SciPy and Matplotlib.</p>
 
@@ -201,25 +377,34 @@
 <span class="n">Type</span><span class="p">:</span>      <span class="n">method_descriptor</span>
 </code></pre></div></div>
 
-<h2 id="4-plotting-in-notebooks">4. Plotting in notebooks</h2>
+<h2 id="4-plotting-in-notebooks">
+<a class="anchor" href="#4-plotting-in-notebooks" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Plotting in notebooks</h2>
 
 <p>There are many options for generating plots in your notebooks.</p>
 
 <ul>
-  <li><a href="http://matplotlib.org/">matplotlib</a> (the de-facto standard), activated with <code class="highlighter-rouge">%matplotlib inline</code> – Here’s a Dataquest <a href="https://www.dataquest.io/blog/matplotlib-tutorial/">Matplotlib Tutorial</a>.</li>
-  <li><code class="highlighter-rouge">%matplotlib notebook</code> provides interactivity but can be a little slow, since rendering is done server-side.</li>
-  <li><a href="http://seaborn.pydata.org/">Seaborn</a> is built over Matplotlib and makes building more attractive plots easier. Just by importing Seaborn, your matplotlib plots are made ‘prettier’ without any code modification.</li>
-  <li><a href="https://github.com/mpld3/mpld3">mpld3</a> provides alternative renderer (using d3) for matplotlib code. Quite nice, though incomplete.</li>
-  <li><a href="http://bokeh.pydata.org/en/latest/">bokeh</a> is a better option for building interactive plots.</li>
-  <li><a href="https://plot.ly/">plot.ly</a> can generate nice plots – this used to be a paid service only but was recently open sourced.</li>
-  <li><a href="https://github.com/altair-viz/altair">Altair</a> is a relatively new declarative visualization library for Python. It’s easy to use and makes great looking plots, however the ability to customize those plots is not nearly as powerful as in Matplotlib.</li>
+  <li>
+<a href="http://matplotlib.org/">matplotlib</a> (the de-facto standard), activated with <code class="highlighter-rouge">%matplotlib inline</code> – Here’s a Dataquest <a href="https://www.dataquest.io/blog/matplotlib-tutorial/">Matplotlib Tutorial</a>.</li>
+  <li>
+<code class="highlighter-rouge">%matplotlib notebook</code> provides interactivity but can be a little slow, since rendering is done server-side.</li>
+  <li>
+<a href="http://seaborn.pydata.org/">Seaborn</a> is built over Matplotlib and makes building more attractive plots easier. Just by importing Seaborn, your matplotlib plots are made ‘prettier’ without any code modification.</li>
+  <li>
+<a href="https://github.com/mpld3/mpld3">mpld3</a> provides alternative renderer (using d3) for matplotlib code. Quite nice, though incomplete.</li>
+  <li>
+<a href="http://bokeh.pydata.org/en/latest/">bokeh</a> is a better option for building interactive plots.</li>
+  <li>
+<a href="https://plot.ly/">plot.ly</a> can generate nice plots – this used to be a paid service only but was recently open sourced.</li>
+  <li>
+<a href="https://github.com/altair-viz/altair">Altair</a> is a relatively new declarative visualization library for Python. It’s easy to use and makes great looking plots, however the ability to customize those plots is not nearly as powerful as in Matplotlib.</li>
 </ul>
 
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/bokeh.png" alt="bokeh" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/bokeh.png" alt="bokeh"></p>
 
 <p><em>The Jupyter interface.</em></p>
 
-<h2 id="5-ipython-magic-commands">5. IPython Magic Commands</h2>
+<h2 id="5-ipython-magic-commands">
+<a class="anchor" href="#5-ipython-magic-commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. IPython Magic Commands</h2>
 
 <p>The <code class="highlighter-rouge">%matplotlib inline</code> you saw above was an example of a <em>IPython Magic</em> command. Being based on the IPython kernel, Jupyter has access to all the Magics from the IPython kernel, and they can make your life a lot easier!</p>
 
@@ -234,7 +419,8 @@
 
 <p>I recommend browsing <a href="http://ipython.readthedocs.io/en/stable/interactive/magics.html">the documentation for all IPython Magic commands</a> as you’ll no doubt find some that work for you. A few of my favorites are below:</p>
 
-<h3 id="6-ipython-magic--env-set-environment-variables">6. IPython Magic – %env: Set Environment Variables</h3>
+<h3 id="6-ipython-magic--env-set-environment-variables">
+<a class="anchor" href="#6-ipython-magic--env-set-environment-variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. IPython Magic – %env: Set Environment Variables</h3>
 
 <p>You can manage environment variables of your notebook without restarting the jupyter server process. Some libraries (like theano) use environment variables to control behavior, %env is the most convenient way.</p>
 
@@ -247,7 +433,8 @@
 <span class="n">env</span><span class="p">:</span> <span class="n">OMP_NUM_THREADS</span><span class="o">=</span><span class="mi">4</span>
 </code></pre></div></div>
 
-<h3 id="7-ipython-magic--run-execute-python-code">7. IPython Magic – %run: Execute python code</h3>
+<h3 id="7-ipython-magic--run-execute-python-code">
+<a class="anchor" href="#7-ipython-magic--run-execute-python-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>7. IPython Magic – %run: Execute python code</h3>
 
 <p><code class="highlighter-rouge">%run</code> can execute python code from .py files – this is well-documented behavior. Lesser known is the fact that it can also execute other jupyter notebooks, which can quite useful.</p>
 
@@ -258,9 +445,10 @@
 </span><span class="o">%</span><span class="n">run</span> <span class="o">./</span><span class="n">two</span><span class="o">-</span><span class="n">histograms</span><span class="o">.</span><span class="n">ipynb</span>
 </code></pre></div></div>
 
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/two-hists.png" alt="two-hists" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/two-hists.png" alt="two-hists"></p>
 
-<h3 id="8-ipython-magic--load-insert-the-code-from-an-external-script">8. IPython Magic – %load: Insert the code from an external script</h3>
+<h3 id="8-ipython-magic--load-insert-the-code-from-an-external-script">
+<a class="anchor" href="#8-ipython-magic--load-insert-the-code-from-an-external-script" aria-hidden="true"><span class="octicon octicon-link"></span></a>8. IPython Magic – %load: Insert the code from an external script</h3>
 
 <p>This will replace the contents of the cell with an external script. You can either use a file on your computer as a source, or alternatively a URL.</p>
 
@@ -273,7 +461,8 @@
 <span class="n">Hello</span> <span class="n">World</span><span class="err">!</span>
 </code></pre></div></div>
 
-<h3 id="9-ipython-magic--store-pass-variables-between-notebooks">9. IPython Magic – %store: Pass variables between notebooks.</h3>
+<h3 id="9-ipython-magic--store-pass-variables-between-notebooks">
+<a class="anchor" href="#9-ipython-magic--store-pass-variables-between-notebooks" aria-hidden="true"><span class="octicon octicon-link"></span></a>9. IPython Magic – %store: Pass variables between notebooks.</h3>
 
 <p>The <code class="highlighter-rouge">%store</code> command lets you pass variables between two different notebooks.</p>
 
@@ -290,7 +479,8 @@
 <span class="n">this</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">string</span> <span class="n">I</span> <span class="n">want</span> <span class="n">to</span> <span class="k">pass</span> <span class="n">to</span> <span class="n">different</span> <span class="n">notebook</span>
 </code></pre></div></div>
 
-<h3 id="10-ipython-magic--who-list-all-variables-of-global-scope">10. IPython Magic – %who: List all variables of global scope.</h3>
+<h3 id="10-ipython-magic--who-list-all-variables-of-global-scope">
+<a class="anchor" href="#10-ipython-magic--who-list-all-variables-of-global-scope" aria-hidden="true"><span class="octicon octicon-link"></span></a>10. IPython Magic – %who: List all variables of global scope.</h3>
 
 <p>The <code class="highlighter-rouge">%who</code> command without any arguments will list all variables that existing in the global scope. Passing a parameter like <code class="highlighter-rouge">str</code> will list only variables of that type.</p>
 
@@ -301,7 +491,8 @@
 <span class="n">one</span>   <span class="n">three</span>   <span class="n">two</span>
 </code></pre></div></div>
 
-<h3 id="11-ipython-magic--timing">11. IPython Magic – Timing</h3>
+<h3 id="11-ipython-magic--timing">
+<a class="anchor" href="#11-ipython-magic--timing" aria-hidden="true"><span class="octicon octicon-link"></span></a>11. IPython Magic – Timing</h3>
 
 <p>There are two IPython Magic commands that are useful for timing – <code class="highlighter-rouge">%%time</code> and <code class="highlighter-rouge">%timeit</code>. These are especially handy when you have some slow code and you’re trying to indentify where the issue is.</p>
 
@@ -323,7 +514,8 @@
 <span class="mi">100000</span> <span class="n">loops</span><span class="p">,</span> <span class="n">best</span> <span class="n">of</span> <span class="mi">3</span><span class="p">:</span> <span class="mf">5.5</span> <span class="err">µ</span><span class="n">s</span> <span class="n">per</span> <span class="n">loop</span>
 </code></pre></div></div>
 
-<h3 id="12-ipython-magic--writefile-and-pycat-export-the-contents-of-a-cellshow-the-contents-of-an-external-script">12. IPython Magic – %%writefile and %pycat: Export the contents of a cell/Show the contents of an external script</h3>
+<h3 id="12-ipython-magic--writefile-and-pycat-export-the-contents-of-a-cellshow-the-contents-of-an-external-script">
+<a class="anchor" href="#12-ipython-magic--writefile-and-pycat-export-the-contents-of-a-cellshow-the-contents-of-an-external-script" aria-hidden="true"><span class="octicon octicon-link"></span></a>12. IPython Magic – %%writefile and %pycat: Export the contents of a cell/Show the contents of an external script</h3>
 
 <p>Using the <code class="highlighter-rouge">%%writefile</code> magic saves the contents of that cell to an external file. <code class="highlighter-rouge">%pycat</code> does the opposite, and shows you (in a popup) the syntax highlighted contents of an external file.</p>
 
@@ -370,7 +562,8 @@
      <span class="mi">1</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span>    <span class="mf">0.000</span> <span class="p">{</span><span class="n">method</span> <span class="s">'disable'</span> <span class="n">of</span> <span class="s">'_lsprof.Profiler'</span> <span class="n">objects</span><span class="p">}</span>
 </code></pre></div></div>
 
-<h3 id="14-ipython-magic--debugging-with-pdb">14. IPython Magic – Debugging with %pdb</h3>
+<h3 id="14-ipython-magic--debugging-with-pdb">
+<a class="anchor" href="#14-ipython-magic--debugging-with-pdb" aria-hidden="true"><span class="octicon octicon-link"></span></a>14. IPython Magic – Debugging with %pdb</h3>
 
 <p>Jupyter has own interface for <a href="https://docs.python.org/3.5/library/pdb.html">The Python Debugger (<code class="highlighter-rouge">pdb</code>)</a>. This makes it possible to go inside the function and investigate what happens there.</p>
 
@@ -408,7 +601,8 @@
 <span class="n">ipdb</span><span class="o">&gt;</span>
 </code></pre></div></div>
 
-<h3 id="15-ipython-magic--high-resolution-plot-outputs-for-retina-notebooks">15. IPython Magic – High-resolution plot outputs for Retina notebooks</h3>
+<h3 id="15-ipython-magic--high-resolution-plot-outputs-for-retina-notebooks">
+<a class="anchor" href="#15-ipython-magic--high-resolution-plot-outputs-for-retina-notebooks" aria-hidden="true"><span class="octicon octicon-link"></span></a>15. IPython Magic – High-resolution plot outputs for Retina notebooks</h3>
 
 <p>One line of IPython magic will give you double resolution plot output for Retina screens, such as the more recent Macbooks. <em>Note: the example below won’t render on non-retina screens</em></p>
 
@@ -421,11 +615,12 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
 </code></pre></div></div>
 
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/hires-1.png" alt="hires-1" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/hires-1.png" alt="hires-1"></p>
 
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/hires-2.png" alt="hires-2" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/hires-2.png" alt="hires-2"></p>
 
-<h2 id="16-suppress-the-output-of-a-final-function">16. Suppress the output of a final function.</h2>
+<h2 id="16-suppress-the-output-of-a-final-function">
+<a class="anchor" href="#16-suppress-the-output-of-a-final-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>16. Suppress the output of a final function.</h2>
 
 <p>Sometimes it’s handy to suppress the output of the function on a final line, for instance when plotting. To do this, you just add a semicolon at the end.</p>
 
@@ -439,11 +634,12 @@
 <span class="c1"># By adding a semicolon at the end, the output is suppressed.plt.hist(x);
 </span></code></pre></div></div>
 
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/hist.png" alt="hist" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/hist.png" alt="hist"></p>
 
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/hist-1582269202752.png" alt="hist" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/hist-1582269202752.png" alt="hist"></p>
 
-<h2 id="17-executing-shell-commands">17. Executing Shell Commands</h2>
+<h2 id="17-executing-shell-commands">
+<a class="anchor" href="#17-executing-shell-commands" aria-hidden="true"><span class="octicon octicon-link"></span></a>17. Executing Shell Commands</h2>
 
 <p>It’s easy to execute a shell command from inside your notebook. You can use this to check what datasets are in available in your working folder:</p>
 
@@ -460,7 +656,8 @@
 <span class="n">pandas</span> <span class="p">(</span><span class="mf">0.18.1</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h2 id="18-using-latex-for-forumlas">18. Using LaTeX for forumlas</h2>
+<h2 id="18-using-latex-for-forumlas">
+<a class="anchor" href="#18-using-latex-for-forumlas" aria-hidden="true"><span class="octicon octicon-link"></span></a>18. Using LaTeX for forumlas</h2>
 
 <p>When you write <a href="https://www.latex-project.org/">LaTeX</a> in a Markdown cell, it will be rendered as a formula using MathJax.</p>
 
@@ -483,7 +680,8 @@
 
 <p>Markdown is an important part of notebooks, so don’t forget to use its expressiveness!</p>
 
-<h2 id="19-run-code-from-a-different-kernel-in-a-notebook">19. Run code from a different kernel in a notebook</h2>
+<h2 id="19-run-code-from-a-different-kernel-in-a-notebook">
+<a class="anchor" href="#19-run-code-from-a-different-kernel-in-a-notebook" aria-hidden="true"><span class="octicon octicon-link"></span></a>19. Run code from a different kernel in a notebook</h2>
 
 <p>If you want to, you can combine code from multiple kernels into one notebook.</p>
 
@@ -510,18 +708,21 @@
 <span class="n">i</span> <span class="ow">is</span> <span class="mi">5</span>
 </code></pre></div></div>
 
-<h2 id="20-install-other-kernels-for-jupyter">20. Install other kernels for Jupyter</h2>
+<h2 id="20-install-other-kernels-for-jupyter">
+<a class="anchor" href="#20-install-other-kernels-for-jupyter" aria-hidden="true"><span class="octicon octicon-link"></span></a>20. Install other kernels for Jupyter</h2>
 
 <p>One of the nice features about Jupyter is ability to run kernels for different languages. As an example, here is how to get and R kernel running.</p>
 
-<h3 id="easy-option-installing-the-r-kernel-using-anaconda">Easy Option: Installing the R Kernel Using Anaconda</h3>
+<h3 id="easy-option-installing-the-r-kernel-using-anaconda">
+<a class="anchor" href="#easy-option-installing-the-r-kernel-using-anaconda" aria-hidden="true"><span class="octicon octicon-link"></span></a>Easy Option: Installing the R Kernel Using Anaconda</h3>
 
 <p>If you used Anaconda to set up your environment, getting R working is extremely easy. Just run the below in your terminal:</p>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">r</span> <span class="n">r</span><span class="o">-</span><span class="n">essentials</span>
 </code></pre></div></div>
 
-<h3 id="less-easy-option-installing-the-r-kernel-manually">Less Easy Option: Installing the R Kernel Manually</h3>
+<h3 id="less-easy-option-installing-the-r-kernel-manually">
+<a class="anchor" href="#less-easy-option-installing-the-r-kernel-manually" aria-hidden="true"><span class="octicon octicon-link"></span></a>Less Easy Option: Installing the R Kernel Manually</h3>
 
 <p>If you are not using Anaconda, the process is a little more complex. Firstly, you’ll need to install R from <a href="https://cloud.r-project.org/">CRAN</a> if you haven’t already.</p>
 
@@ -532,7 +733,8 @@
 <span class="n">IRkernel</span><span class="p">::</span><span class="n">installspec</span><span class="p">()</span>  <span class="c1"># to register the kernel in the current R installation
 </span></code></pre></div></div>
 
-<h2 id="21-running-r-and-python-in-the-same-notebook">21. Running R and Python in the same notebook.</h2>
+<h2 id="21-running-r-and-python-in-the-same-notebook">
+<a class="anchor" href="#21-running-r-and-python-in-the-same-notebook" aria-hidden="true"><span class="octicon octicon-link"></span></a>21. Running R and Python in the same notebook.</h2>
 
 <p>The best solution to this is to install <a href="http://rpy2.bitbucket.org/">rpy2</a> (requires a working version of R as well), which can be easily done with <code class="highlighter-rouge">pip</code>:</p>
 
@@ -555,11 +757,12 @@
 <span class="n">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span> <span class="o">+</span> <span class="n">geom_point</span><span class="p">(</span><span class="n">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span> <span class="n">Y</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">Letter</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">Z</span><span class="p">))</span>
 </code></pre></div></div>
 
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/ggplot.png" alt="ggplot" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/ggplot.png" alt="ggplot"></p>
 
 <p><em>Example courtesy Revolutions Blog</em></p>
 
-<h2 id="22-writing-functions-in-other-languages">22. Writing functions in other languages</h2>
+<h2 id="22-writing-functions-in-other-languages">
+<a class="anchor" href="#22-writing-functions-in-other-languages" aria-hidden="true"><span class="octicon octicon-link"></span></a>22. Writing functions in other languages</h2>
 
 <p>Sometimes the speed of numpy is not enough and I need to write some fast code.
 In principle, you can compile function in the dynamic library and write python wrappers…</p>
@@ -594,15 +797,17 @@ In principle, you can compile function in the dynamic library and write python w
 
 <p>There are also different jitter systems which can speed up your python code. More examples <a href="http://arogozhnikov.github.io/2015/09/08/SpeedBenchmarks.html">can be found here</a>.</p>
 
-<h2 id="23-multicursor-support">23. Multicursor support</h2>
+<h2 id="23-multicursor-support">
+<a class="anchor" href="#23-multicursor-support" aria-hidden="true"><span class="octicon octicon-link"></span></a>23. Multicursor support</h2>
 
 <p>Jupyter supports mutiple cursors, similar to Sublime Text. Simply click and drag your mouse while holding down <code class="highlighter-rouge">Alt</code>.</p>
 
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/multiline.gif" alt="multiline" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/multiline.gif" alt="multiline"></p>
 
 <p><em>Multicursor support.</em></p>
 
-<h2 id="24-jupyter-contrib-extensions">24. Jupyter-contrib extensions</h2>
+<h2 id="24-jupyter-contrib-extensions">
+<a class="anchor" href="#24-jupyter-contrib-extensions" aria-hidden="true"><span class="octicon octicon-link"></span></a>24. Jupyter-contrib extensions</h2>
 
 <p><a href="https://github.com/ipython-contrib/jupyter_contrib_nbextensions">Jupyter-contrib extensions</a> is a family of extensions which give Jupyter a lot more functionality, including e.g. <code class="highlighter-rouge">jupyter spell-checker</code> and <code class="highlighter-rouge">code-formatter</code>.</p>
 
@@ -614,11 +819,12 @@ In principle, you can compile function in the dynamic library and write python w
 <span class="err">!</span><span class="n">jupyter</span> <span class="n">nbextensions_configurator</span> <span class="n">enable</span> <span class="o">--</span><span class="n">user</span>
 </code></pre></div></div>
 
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/nbextensions.png" alt="nbextensions" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/nbextensions.png" alt="nbextensions"></p>
 
 <p><em>The nbextension configurator.</em></p>
 
-<h2 id="25-create-a-presentation-from-a-jupyter-notebook">25. Create a presentation from a Jupyter notebook.</h2>
+<h2 id="25-create-a-presentation-from-a-jupyter-notebook">
+<a class="anchor" href="#25-create-a-presentation-from-a-jupyter-notebook" aria-hidden="true"><span class="octicon octicon-link"></span></a>25. Create a presentation from a Jupyter notebook.</h2>
 
 <p>Damian Avila’s <a href="https://github.com/damianavila/RISE">RISE</a> allows you to create a powerpoint style presentation from an existing notebook.</p>
 
@@ -638,7 +844,8 @@ In principle, you can compile function in the dynamic library and write python w
 <span class="n">jupyter</span><span class="o">-</span><span class="n">nbextension</span> <span class="n">enable</span> <span class="n">rise</span> <span class="o">--</span><span class="n">py</span> <span class="o">--</span><span class="n">sys</span><span class="o">-</span><span class="n">prefix</span>
 </code></pre></div></div>
 
-<h2 id="26-the-jupyter-output-system">26. The Jupyter output system</h2>
+<h2 id="26-the-jupyter-output-system">
+<a class="anchor" href="#26-the-jupyter-output-system" aria-hidden="true"><span class="octicon octicon-link"></span></a>26. The Jupyter output system</h2>
 
 <p>Notebooks are displayed as HTML and the cell output can be HTML, so you can return virtually anything: video/audio/images.</p>
 
@@ -651,15 +858,15 @@ In principle, you can compile function in the dynamic library and write python w
     <span class="n">display</span><span class="p">(</span><span class="n">Image</span><span class="p">(</span><span class="s">'../images/ml_demonstrations/'</span> <span class="o">+</span> <span class="n">name</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">100</span><span class="p">))</span>
 </code></pre></div></div>
 
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/img1.png" alt="img1" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/img1.png" alt="img1"></p>
 
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/img2.png" alt="img2" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/img2.png" alt="img2"></p>
 
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/img3.png" alt="img3" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/img3.png" alt="img3"></p>
 
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/img4.png" alt="img4" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/img4.png" alt="img4"></p>
 
-<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/img5.png" alt="img5" /></p>
+<p><img src="../../../images/2020-02-21-Jupyter%20Notebook%20Tips,%20Tricks,%20and%20Shortcuts/img5.png" alt="img5"></p>
 
 <p>We can create the same list with a bash command, because magics and bash calls return python variables:</p>
 
@@ -672,17 +879,21 @@ In principle, you can compile function in the dynamic library and write python w
 <span class="s">'../images/ml_demonstrations/dream_mnist.png'</span><span class="p">]</span>
 </code></pre></div></div>
 
-<h2 id="27-big-data-analysis">27. ‘Big data’ analysis</h2>
+<h2 id="27-big-data-analysis">
+<a class="anchor" href="#27-big-data-analysis" aria-hidden="true"><span class="octicon octicon-link"></span></a>27. ‘Big data’ analysis</h2>
 
 <p>A number of solutions are available for querying/processing large data samples:</p>
 
 <ul>
-  <li><a href="https://github.com/ipython/ipyparallel">ipyparallel (formerly ipython cluster)</a> is a good option for simple map-reduce operations in python. We use it in <a href="https://github.com/yandex/rep">rep</a> to train many machine learning models in parallel</li>
+  <li>
+<a href="https://github.com/ipython/ipyparallel">ipyparallel (formerly ipython cluster)</a> is a good option for simple map-reduce operations in python. We use it in <a href="https://github.com/yandex/rep">rep</a> to train many machine learning models in parallel</li>
   <li><a href="http://www.cloudera.com/documentation/enterprise/5-5-x/topics/spark_ipython.html">pyspark</a></li>
-  <li>spark-sql magic <a href="https://github.com/jupyter-incubator/sparkmagic">%%sql</a></li>
+  <li>spark-sql magic <a href="https://github.com/jupyter-incubator/sparkmagic">%%sql</a>
+</li>
 </ul>
 
-<h2 id="28-sharing-notebooks">28. Sharing notebooks</h2>
+<h2 id="28-sharing-notebooks">
+<a class="anchor" href="#28-sharing-notebooks" aria-hidden="true"><span class="octicon octicon-link"></span></a>28. Sharing notebooks</h2>
 
 <p>The easiest way to share your notebook is simply using the notebook file (.ipynb), but for those who don’t use Jupyter, you have a few options:</p>
 
@@ -719,3 +930,36 @@ In principle, you can compile function in the dynamic library and write python w
   </li>
 </ul>
 
+
+  </div><a class="u-url" href="/fastpages/markdown/2020/02/21/Jupyter-Notebook-Tips,-Tricks,-and-Shortcuts.html" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/fastpages/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/fastpages/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/fastpages/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" title="fastai"><svg class="svg-icon grey"><use xlink:href="/fastpages/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/fastpages/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
