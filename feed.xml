@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://op07n.github.io/fastpages/feed.xml" rel="self" type="application/atom+xml" /><link href="https://op07n.github.io/fastpages/" rel="alternate" type="text/html" /><updated>2020-05-07T09:48:39-05:00</updated><id>https://op07n.github.io/fastpages/feed.xml</id><title type="html">fastpages</title><subtitle>An easy to use blogging platform with support for Jupyter Notebooks.</subtitle><entry><title type="html">Read A Book In A Day</title><link href="https://op07n.github.io/fastpages/2020/05/06/read-a-book-in-a-day.html" rel="alternate" type="text/html" title="Read A Book In A Day" /><published>2020-05-06T00:00:00-05:00</published><updated>2020-05-06T00:00:00-05:00</updated><id>https://op07n.github.io/fastpages/2020/05/06/read-a-book-in-a-day</id><content type="html" xml:base="https://op07n.github.io/fastpages/2020/05/06/read-a-book-in-a-day.html">&lt;h1 id=&quot;read-a-book-in-a-day-how-to-speed-read-and-remember-it-all&quot;&gt;READ A BOOK IN A DAY (how to speed-read and remember it all)&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://op07n.github.io/fastpages/feed.xml" rel="self" type="application/atom+xml" /><link href="https://op07n.github.io/fastpages/" rel="alternate" type="text/html" /><updated>2020-05-08T12:50:41-05:00</updated><id>https://op07n.github.io/fastpages/feed.xml</id><title type="html">fastpages</title><subtitle>An easy to use blogging platform with support for Jupyter Notebooks.</subtitle><entry><title type="html">Read A Book In A Day</title><link href="https://op07n.github.io/fastpages/2020/05/06/read-a-book-in-a-day.html" rel="alternate" type="text/html" title="Read A Book In A Day" /><published>2020-05-06T00:00:00-05:00</published><updated>2020-05-06T00:00:00-05:00</updated><id>https://op07n.github.io/fastpages/2020/05/06/read-a-book-in-a-day</id><content type="html" xml:base="https://op07n.github.io/fastpages/2020/05/06/read-a-book-in-a-day.html">&lt;h1 id=&quot;read-a-book-in-a-day-how-to-speed-read-and-remember-it-all&quot;&gt;READ A BOOK IN A DAY (how to speed-read and remember it all)&lt;/h1&gt;
 
 &lt;p&gt;Borrowed from:&lt;/p&gt;
 
@@ -1795,24 +1795,7 @@ And another {% fn 2 %}
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://op07n.github.io/fastpages/images/chart-preview.png" /><media:content medium="image" url="https://op07n.github.io/fastpages/images/chart-preview.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Test Markdown Post</title><link href="https://op07n.github.io/fastpages/2020/01/14/test-markdown-post.html" rel="alternate" type="text/html" title="Test Markdown Post" /><published>2020-01-14T00:00:00-06:00</published><updated>2020-01-14T00:00:00-06:00</updated><id>https://op07n.github.io/fastpages/2020/01/14/test-markdown-post</id><content type="html" xml:base="https://op07n.github.io/fastpages/2020/01/14/test-markdown-post.html">&lt;h1 id=&quot;example-markdown-post1&quot;&gt;Example Markdown Post1&lt;/h1&gt;
-
-&lt;p&gt;Here’s the table of contents:&lt;/p&gt;
-
-&lt;ol id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#example-markdown-post1&quot; id=&quot;markdown-toc-example-markdown-post1&quot;&gt;Example Markdown Post1&lt;/a&gt;    &lt;ol&gt;
-      &lt;li&gt;&lt;a href=&quot;#basic-setup&quot; id=&quot;markdown-toc-basic-setup&quot;&gt;Basic setup&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#basic-formatting&quot; id=&quot;markdown-toc-basic-formatting&quot;&gt;Basic formatting&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#lists&quot; id=&quot;markdown-toc-lists&quot;&gt;Lists&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#boxes-and-stuff&quot; id=&quot;markdown-toc-boxes-and-stuff&quot;&gt;Boxes and stuff&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#images&quot; id=&quot;markdown-toc-images&quot;&gt;Images&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#code&quot; id=&quot;markdown-toc-code&quot;&gt;Code&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#tables&quot; id=&quot;markdown-toc-tables&quot;&gt;Tables&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#tweetcards&quot; id=&quot;markdown-toc-tweetcards&quot;&gt;Tweetcards&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#footnotes&quot; id=&quot;markdown-toc-footnotes&quot;&gt;Footnotes&lt;/a&gt;&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-&lt;/ol&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html"></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://op07n.github.io/fastpages/images/chart-preview.png" /><media:content medium="image" url="https://op07n.github.io/fastpages/images/chart-preview.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">An Example Markdown Post</title><link href="https://op07n.github.io/fastpages/markdown/2020/01/14/test-markdown-post.html" rel="alternate" type="text/html" title="An Example Markdown Post" /><published>2020-01-14T00:00:00-06:00</published><updated>2020-01-14T00:00:00-06:00</updated><id>https://op07n.github.io/fastpages/markdown/2020/01/14/test-markdown-post</id><content type="html" xml:base="https://op07n.github.io/fastpages/markdown/2020/01/14/test-markdown-post.html">&lt;h1 id=&quot;example-markdown-post&quot;&gt;Example Markdown Post&lt;/h1&gt;
 
 &lt;h2 id=&quot;basic-setup&quot;&gt;Basic setup&lt;/h2&gt;
 
@@ -1870,6 +1853,8 @@ And another {% fn 2 %}
 
 &lt;h2 id=&quot;code&quot;&gt;Code&lt;/h2&gt;
 
+&lt;p&gt;You can format text and code per usual&lt;/p&gt;
+
 &lt;p&gt;General preformatted text:&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Do a thing
@@ -1883,6 +1868,19 @@ do_thing()
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Formatting text as shell commands:&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;hello world&quot;&lt;/span&gt;
+./some_script.sh &lt;span class=&quot;nt&quot;&gt;--option&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;value&quot;&lt;/span&gt;
+wget https://example.com/cat_photo1.png
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Formatting text as YAML:&lt;/p&gt;
+
+&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;value&lt;/span&gt;
+&lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;another_key&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;another&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;value&quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;tables&quot;&gt;Tables&lt;/h2&gt;
@@ -1916,4 +1914,4 @@ do_thing()
       &lt;p&gt;This is the footnote. &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Example Markdown Post1</summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><summary type="html">Example Markdown Post</summary></entry></feed>
