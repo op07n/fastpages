@@ -3,7 +3,7 @@ toc: false
 layout: post
 description: How Whatsapp (and Facebook) will Zuck You.
 categories: [markdown]
-title: description: How Whatsapp (and Facebook) will Zuck You.
+title: How Whatsapp (and Facebook) will Zuck You.
 ---
 # How Whatsapp (and Facebook) will Zuck You
 
