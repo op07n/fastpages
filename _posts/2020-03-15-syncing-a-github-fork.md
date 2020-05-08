@@ -1,11 +1,15 @@
+---
+toc: true
+layout: post
+description: Syncing a github fork.
+categories: [markdown]
+title: Syncing a github fork.
+---
 # Syncing a github fork.
 
 Borrowed of https://github.com/BlockSigner/cove
 
-1. TOC
-{:toc}
-
-### Configure a remote for a fork
+## Configure a remote for a fork
 https://help.github.com/en/articles/configuring-a-remote-for-a-fork
 
 - open the Terminal
@@ -22,7 +26,7 @@ $ git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.
 $ git remote -v
 ```
 
-### Syncing the fork
+## Syncing the fork
 from https://help.github.com/en/articles/syncing-a-fork
 
 - open the Terminal
