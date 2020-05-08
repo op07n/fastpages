@@ -1,11 +1,15 @@
+---
+toc: true
+layout: post
+description: Phone Tracking Threads.
+categories: [markdown]
+title: Phone Tracking Threads.
+---
 # Phone Tracking Threads.
 
 Borrowed from:
 
 [![Alt text](https://img.youtube.com/vi/k87lmT84vIo/0.jpg)](https://www.youtube.com/watch?v=k87lmT84vIo)
-
-1. TOC
-{:toc}
 
 ## Number one threat: Wi-Fi scanning.
 
