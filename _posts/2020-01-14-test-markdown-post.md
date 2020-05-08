@@ -1,9 +1,11 @@
-# Example Markdown Post1 
-
-Here's the table of contents:
-
-1. TOC
-{:toc}
+---
+toc: true
+layout: post
+description: A minimal example of using markdown with fastpages.
+categories: [markdown]
+title: An Example Markdown Post
+---
+# Example Markdown Post
 
 ## Basic setup
 
@@ -49,6 +51,8 @@ And a numbered list:
 
 ## Code
 
+You can format text and code per usual 
+
 General preformatted text:
 
     # Do a thing
@@ -62,6 +66,22 @@ print(1+1)
 ```
 
     2
+
+Formatting text as shell commands:
+
+```shell
+echo "hello world"
+./some_script.sh --option "value"
+wget https://example.com/cat_photo1.png
+```
+
+Formatting text as YAML:
+
+```yaml
+key: value
+- another_key: "another value"
+```
+
 
 ## Tables
 
