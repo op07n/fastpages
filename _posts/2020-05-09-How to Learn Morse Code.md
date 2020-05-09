@@ -8,9 +8,9 @@ title: How to Learn Morse Code.
 
 [![Morse code tree](https://matrix207.github.io/assets/image/posts/Morse-code-tree.svg)](https://matrix207.github.io/assets/image/posts/Morse-code-tree.svg)Morse code tree
 
-Borrowed from https://matrix207.github.io/2014/06/24/how-to-learn-morse-code/
+**Borrowed from** [https://matrix207.github.io/2014/06/24/how-to-learn-morse-code](https://matrix207.github.io/2014/06/24/how-to-learn-morse-code)
 
-**From** http://www.wikihow.com/Learn-Morse-Code
+**From** [http://www.wikihow.com/Learn-Morse-Code](http://www.wikihow.com/Learn-Morse-Code)
 
 See also:
 
