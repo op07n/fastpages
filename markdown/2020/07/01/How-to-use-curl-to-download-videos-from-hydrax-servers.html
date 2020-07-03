@@ -133,14 +133,30 @@ window.onload = wrap_img;
 
 <p>My chrome extension to do this, “Video Download Helper”, is not working in these cases.
 When I used it, give me the url that is not allowed for uploading the video. 
-So, one way to do this is to use the Chrome browser developer tools. While the movie is being played in the developer tools, the url from the stream seems to grow more than the others. Therefore, when we request more information about this link, we get the url of the host and referrer. This is all we need to use curl.</p>
+So, one way to do this is to use the Chrome browser developer tools. While the movie is being played in the developer tools, the url from the stream seems to grow more than the others. Therefore, when we request more information about this link, we get the url of the host and referer. This is all we need to use curl.</p>
 
 <p>For example, if the url host is https://hbxc9pbqqw.xyz/ and the referer is https://playhydrax.com/?v=vD2ss7KTB
 then one of the ways to use curl can be as follows:</p>
 
 <blockquote>
-  <p>curl -L -o filenametosave -C - -k –referer  https://playhydrax.com/?v=vD2ss7KTB https://hbxc9pbqqw.xyz/</p>
+  <p>curl -o filenametosave -k “https://5wvyakb9zr.buzz/” -H “Referer: https://playhydrax.com/?v=qzH5GkNNx6” –compressed</p>
 </blockquote>
+
+<p>Bonus:</p>
+
+<p>Also is posible to use powershell:</p>
+
+<blockquote>
+  <p>Invoke-WebRequest -Uri “https://eno13lwuxv.xyz/” -Headers @{“Referer”=”https://playhydrax.com/?v=j4ivrSmiCR”} -OutFile filenametosave</p>
+</blockquote>
+
+<p>Tip to avoid stop by developer debugger:</p>
+
+<p>Wait to init the movie and pause the player. Go to Application ( in developer tools ) and “clear site data”. Next play to continue viewing the movie.
+In Network is easy to recognize for the waterfall growing. Mouse right click menu allow to get the Copy as cURL or Copy all as Powershell.</p>
+
+<script src="https://utteranc.es/client.js" repo="op07n/fastpages" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
+</script>
 
 
   </div><a class="u-url" href="/fastpages/markdown/2020/07/01/How-to-use-curl-to-download-videos-from-hydrax-servers.html" hidden></a>
